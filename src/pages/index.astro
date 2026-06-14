@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Ticker from '../components/Ticker.tsx';
+import SocialProof from '../components/SocialProof.astro';
+import Hero from '../components/Hero.tsx';
+import Services from '../components/Services.astro';
+import Process from '../components/Process.tsx';
+import Portfolio from '../components/Portfolio.tsx';
+import Team from '../components/Team.astro';
+import Faq from '../components/Faq.tsx';
+import Contact from '../components/Contact.tsx';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Web Cunts — Performance-Driven Web Solutions for Growing Businesses">
+  <Header />
+  <Ticker client:load />
+  
+  <main class="bg-[#F9F9F7]">
+    <SocialProof />
+    <Hero />
+    <Services />
+    <Process client:load />
+    <Portfolio client:load />
+    <Team />
+    <Faq client:load />
+    <Contact client:load />
+  </main>
+  
+  <Footer />
+</Layout>

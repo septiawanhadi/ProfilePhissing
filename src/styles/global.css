@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=block');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #F9F9F7;
+    color: #111111;
+    font-family: 'Lora', Georgia, serif;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23111111' fill-opacity='0.04' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    line-height: 1.625;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Force sharp geometric corners everywhere */
+  *, *::before, *::after {
+    border-radius: 0px !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    color: #111111;
+  }
+}
+
+@layer utilities {
+  /* Editorial details */
+  .newsprint-texture {
+    position: relative;
+  }
+  .newsprint-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(0deg, transparent 98%, rgba(17,17,17,0.02) 100%),
+      linear-gradient(90deg, transparent 98%, rgba(17,17,17,0.02) 100%);
+    background-size: 3px 3px;
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  .hard-shadow-hover {
+    transition: all 0.2s ease-out;
+  }
+  .hard-shadow-hover:hover {
+    box-shadow: 4px 4px 0px 0px #111111;
+    transform: translate(-2px, -2px);
+  }
+
+  .vintage-image {
+    filter: grayscale(100%);
+    transition: all 0.3s ease-out;
+  }
+  .vintage-image:hover {
+    filter: grayscale(0%) sepia(50%);
+  }
+
+  /* Editorial Drop Cap */
+  .drop-cap::first-letter {
+    float: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    line-height: 0.85;
+    padding-top: 6px;
+    padding-right: 12px;
+    font-weight: 900;
+    color: #CC0000;
+  }
+}

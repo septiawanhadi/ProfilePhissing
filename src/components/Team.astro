@@ -1,0 +1,64 @@
+---
+// Team.astro — Founders introduction with halftone portrait placeholders
+const founders = [
+  {
+    name: "Didra Rayyan Herlambang",
+    role: "Full-Stack Developer & Co-Founder",
+    bio: "Specializes in enterprise web revamps, SEO architecture, and AI integrations. Currently engineering at PT Berlian Sistem Informasi. Built manyarmotor.com (100/100 Lighthouse) and the Sawargi AI chatbot system.",
+    github: "https://github.com/didradev",
+    portfolio: "https://didradev.netlify.app/",
+    initials: "DRH",
+  },
+  {
+    name: "Septiawan Hadi Prasetyo",
+    role: "Frontend Developer & Co-Founder",
+    bio: "Specializes in accessible interfaces, health tech platforms, and school management systems. Built SagaHealth diagnostics and the SLB Raudhatul Zannah school portal — both achieving AAA accessibility ratings.",
+    github: "https://github.com/septiawanhadi",
+    portfolio: "https://septiawanhadi.github.io/septiawanhadip/",
+    initials: "SHP",
+  }
+];
+---
+
+<section class="max-w-screen-xl mx-auto px-4 py-16 border-b-2 border-[#111111] bg-[#F9F9F7]">
+  <!-- Section Header -->
+  <div class="mb-12 border-b-2 border-[#111111] pb-4">
+    <div class="font-mono text-xs uppercase tracking-widest text-neutral-600 font-bold mb-2">Team // The People Behind the Code</div>
+    <h2 class="font-serif text-4xl md:text-5xl font-black uppercase text-[#111111] tracking-tight">WHO WE ARE</h2>
+  </div>
+
+  <!-- 2-Column Team Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-[#111111] bg-white">
+    {founders.map((founder, idx) => (
+      <div class={`p-8 ${idx === 0 ? 'border-b md:border-b-0 md:border-r border-[#111111]' : ''}`}>
+        <!-- Halftone Portrait Placeholder -->
+        <div class="border border-[#111111] p-2 bg-white mb-6 group">
+          <div class="h-48 bg-[#E5E5E0] relative flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(#111_1px,transparent_1px)] opacity-15 [background-size:6px_6px]"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(rgba(17,17,17,0.04)_50%,transparent_50%)] [background-size:100%_3px]"></div>
+            <div class="z-10 text-center transition-transform duration-500 group-hover:scale-110">
+              <div class="font-serif text-5xl font-black text-neutral-700">{founder.initials}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Name & Role -->
+        <h3 class="font-serif text-2xl font-bold uppercase text-[#111111] mb-1 leading-tight">{founder.name}</h3>
+        <div class="font-mono text-[10px] uppercase tracking-widest text-[#CC0000] font-bold mb-4">{founder.role}</div>
+
+        <!-- Bio -->
+        <p class="font-body text-sm text-neutral-600 text-justify mb-6 leading-relaxed">{founder.bio}</p>
+
+        <!-- Social Links -->
+        <div class="flex gap-3">
+          <a href={founder.github} target="_blank" rel="noopener noreferrer" class="border border-[#111111] px-3 py-2 font-mono text-[10px] uppercase tracking-widest font-bold hover:bg-[#111111] hover:text-[#F9F9F7] transition-colors" aria-label={`${founder.name} GitHub`}>
+            GitHub
+          </a>
+          <a href={founder.portfolio} target="_blank" rel="noopener noreferrer" class="border border-[#111111] px-3 py-2 font-mono text-[10px] uppercase tracking-widest font-bold hover:bg-[#111111] hover:text-[#F9F9F7] transition-colors" aria-label={`${founder.name} Portfolio`}>
+            Portfolio
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
