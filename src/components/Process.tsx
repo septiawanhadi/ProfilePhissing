@@ -3,23 +3,23 @@ import React from 'react';
 const steps = [
   {
     number: "01",
-    title: "DISCOVERY",
-    description: "We learn your business, your customers, and your goals. Free 30-minute consultation — no obligation.",
+    title: "DISCOVERY & ALIGNMENT",
+    description: "We begin with a deep dive into your business, customer demographics, and goals. Through a free 30-minute consultation, we analyze your current challenges and determine the best approach to drive real business results.",
   },
   {
     number: "02",
-    title: "STRATEGY",
-    description: "We propose a custom architecture, timeline, and fixed-price quote. No hidden fees, no surprises.",
+    title: "STRATEGY & ROADMAP",
+    description: "We outline the application architecture, propose the optimal tech stack, and define the project timeline. You will receive a comprehensive development roadmap along with a fixed-price proposal. What we quote is exactly what you pay.",
   },
   {
     number: "03",
-    title: "BUILD",
-    description: "We design and develop in focused sprints. You see progress every step of the way with regular updates.",
+    title: "ITERATIVE SPRINT BUILDS",
+    description: "We develop the solution in focused, weekly sprints. We host live staging sites so you can monitor real-time progress, test interactive components, and provide feedback at every stage of the development cycle.",
   },
   {
     number: "04",
-    title: "LAUNCH & GROW",
-    description: "We deploy, optimize for SEO, and hand over full ownership of your code. Optional ongoing support available.",
+    title: "LAUNCH, SEO & HANDOVER",
+    description: "We conduct rigorous cross-browser testing and perform a final search-engine optimization sweep. After launching on high-speed global servers, we hand over full repository ownership and provide 30 days of free bug-fix support.",
   },
 ];
 

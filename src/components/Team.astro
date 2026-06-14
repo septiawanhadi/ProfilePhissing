@@ -8,14 +8,16 @@ const founders = [
     github: "https://github.com/didradev",
     portfolio: "https://didradev.netlify.app/",
     initials: "DRH",
+    photo: "https://github.com/didradev.png",
   },
   {
     name: "Septiawan Hadi Prasetyo",
-    role: "Frontend Developer & Co-Founder",
+    role: "Full-Stack Developer | AI & Data Analyst & Co-Founder",
     bio: "Specializes in accessible interfaces, health tech platforms, and school management systems. Built SagaHealth diagnostics and the SLB Raudhatul Zannah school portal — both achieving AAA accessibility ratings.",
     github: "https://github.com/septiawanhadi",
     portfolio: "https://septiawanhadi.github.io/septiawanhadip/",
     initials: "SHP",
+    photo: "/septiawan.png",
   }
 ];
 ---
@@ -31,14 +33,23 @@ const founders = [
   <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-[#111111] bg-white">
     {founders.map((founder, idx) => (
       <div class={`p-8 ${idx === 0 ? 'border-b md:border-b-0 md:border-r border-[#111111]' : ''}`}>
-        <!-- Halftone Portrait Placeholder -->
+        <!-- Halftone Portrait Photo / Placeholder -->
         <div class="border border-[#111111] p-2 bg-white mb-6 group">
-          <div class="h-48 bg-[#E5E5E0] relative flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 bg-[radial-gradient(#111_1px,transparent_1px)] opacity-15 [background-size:6px_6px]"></div>
-            <div class="absolute inset-0 bg-[linear-gradient(rgba(17,17,17,0.04)_50%,transparent_50%)] [background-size:100%_3px]"></div>
-            <div class="z-10 text-center transition-transform duration-500 group-hover:scale-110">
-              <div class="font-serif text-5xl font-black text-neutral-700">{founder.initials}</div>
-            </div>
+          <div class="h-48 bg-[#F9F9F7] relative flex items-center justify-center overflow-hidden">
+            {founder.photo ? (
+              <img 
+                src={founder.photo} 
+                alt={founder.name} 
+                class="absolute inset-0 w-full h-full object-contain grayscale contrast-125 transition-transform duration-500 group-hover:scale-105"
+              />
+            ) : null}
+            <div class="absolute inset-0 bg-[radial-gradient(#111_1px,transparent_1px)] opacity-15 [background-size:6px_6px] pointer-events-none"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(rgba(17,17,17,0.04)_50%,transparent_50%)] [background-size:100%_3px] pointer-events-none"></div>
+            {!founder.photo && (
+              <div class="z-10 text-center transition-transform duration-500 group-hover:scale-110">
+                <div class="font-serif text-5xl font-black text-neutral-700">{founder.initials}</div>
+              </div>
+            )}
           </div>
         </div>
 
