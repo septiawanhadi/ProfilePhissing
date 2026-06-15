@@ -3,7 +3,7 @@
 const today = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase();
 ---
 
-<header class="max-w-screen-xl mx-auto px-4 pt-6 pb-2 border-b-4 border-[#111111]">
+<header class="max-w-screen-xl mx-auto px-4 pt-6 pb-2">
   <!-- Top Masthead Info -->
   <div class="grid grid-cols-2 md:grid-cols-3 border-b border-[#111111] pb-2 text-xs font-mono uppercase tracking-widest text-neutral-600">
     <div class="hidden md:block">
@@ -36,14 +36,18 @@ const today = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'n
       AVAILABLE FOR REMOTE PROJECTS WORLDWIDE
     </div>
   </div>
-
-  <!-- Nav Bar -->
-  <nav class="flex flex-wrap justify-center gap-x-8 gap-y-2 py-3 text-xs md:text-sm font-sans font-bold uppercase tracking-widest" aria-label="Main navigation">
-    <a href="#home" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-home">Home</a>
-    <a href="#services" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-services">Services</a>
-    <a href="#why-choose-us" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-why-choose-us">Why Us</a>
-    <a href="#work" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-work">Work</a>
-    <a href="#faq" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-faq">FAQ</a>
-    <a href="#contact" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-contact">Contact</a>
-  </nav>
 </header>
+
+<!-- Sticky Nav Bar -->
+<div class="sticky top-0 z-50 bg-[#F9F9F7] border-b-4 border-[#111111] w-full">
+  <div class="max-w-screen-xl mx-auto px-4">
+    <nav class="flex flex-wrap justify-center gap-x-8 gap-y-2 py-3 text-xs md:text-sm font-sans font-bold uppercase tracking-widest" aria-label="Main navigation">
+      <a href="#home" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-home">Home</a>
+      <a href="#services" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-services">Services</a>
+      <a href="#why-choose-us" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-why-choose-us">Why Us</a>
+      <a href="#work" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-work">Work</a>
+      <a href="#faq" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-faq">FAQ</a>
+      <a href="#contact" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-contact">Contact</a>
+    </nav>
+  </div>
+</div>
