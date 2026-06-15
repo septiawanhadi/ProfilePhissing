@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact() {
+  const [state, handleSubmit, reset] = useForm('mrevjayn');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     budget: '300-500',
     message: ''
   });
-  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
+  const handleReset = () => {
+    setFormData({
+      name: '',
+      email: '',
+      budget: '300-500',
+      message: ''
+    });
+    reset();
   };
 
   return (
@@ -55,7 +60,7 @@ export default function Contact() {
           onSubmit={handleSubmit}
           className="lg:col-span-7 border-2 border-[#111111] p-8 bg-white"
         >
-          {submitted ? (
+          {state.succeeded ? (
             <div className="text-center py-12">
               <span className="font-serif text-3xl font-black uppercase text-[#CC0000] block mb-4">
                 ★ MESSAGE SENT ★
@@ -65,7 +70,7 @@ export default function Contact() {
               </p>
               <button
                 type="button"
-                onClick={() => setSubmitted(false)}
+                onClick={handleReset}
                 className="mt-6 border border-[#111111] bg-transparent px-6 py-2.5 font-sans font-bold uppercase tracking-widest text-xs transition-colors hover:bg-[#111111] hover:text-[#F9F9F7] cursor-pointer"
               >
                 Send Another Message
@@ -80,6 +85,7 @@ export default function Contact() {
                 </label>
                 <input 
                   type="text" 
+                  name="name"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -87,6 +93,7 @@ export default function Contact() {
                   className="border-b-2 border-[#111111] bg-transparent px-3 py-2 font-mono text-sm focus-visible:bg-neutral-100 focus-visible:outline-none"
                   style={{ borderRadius: '0px' }}
                 />
+                <ValidationError prefix="Name" field="name" errors={state.errors} className="font-mono text-xs text-[#CC0000] mt-1 block" />
               </div>
 
               {/* Email */}
@@ -96,6 +103,7 @@ export default function Contact() {
                 </label>
                 <input 
                   type="email" 
+                  name="email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -103,6 +111,7 @@ export default function Contact() {
                   className="border-b-2 border-[#111111] bg-transparent px-3 py-2 font-mono text-sm focus-visible:bg-neutral-100 focus-visible:outline-none"
                   style={{ borderRadius: '0px' }}
                 />
+                <ValidationError prefix="Email" field="email" errors={state.errors} className="font-mono text-xs text-[#CC0000] mt-1 block" />
               </div>
 
               {/* Budget */}
@@ -111,6 +120,7 @@ export default function Contact() {
                   Estimated Budget
                 </label>
                 <select 
+                  name="budget"
                   value={formData.budget}
                   onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                   className="border-b-2 border-[#111111] bg-transparent px-3 py-2.5 font-mono text-sm focus-visible:bg-neutral-100 focus-visible:outline-none cursor-pointer"
@@ -123,6 +133,7 @@ export default function Contact() {
                   <option value="2000-plus">$2,000+ USD</option>
                   <option value="not-sure">Not sure yet — let's discuss</option>
                 </select>
+                <ValidationError prefix="Budget" field="budget" errors={state.errors} className="font-mono text-xs text-[#CC0000] mt-1 block" />
               </div>
 
               {/* Message */}
@@ -131,6 +142,7 @@ export default function Contact() {
                   Tell Us About Your Project
                 </label>
                 <textarea 
+                  name="message"
                   required
                   rows={4}
                   value={formData.message}
@@ -139,15 +151,17 @@ export default function Contact() {
                   className="border border-[#111111] bg-transparent p-3 font-mono text-sm focus-visible:bg-neutral-100 focus-visible:outline-none"
                   style={{ borderRadius: '0px' }}
                 />
+                <ValidationError prefix="Message" field="message" errors={state.errors} className="font-mono text-xs text-[#CC0000] mt-1 block" />
               </div>
 
               {/* Submit */}
               <button 
                 type="submit"
-                className="w-full bg-[#111111] text-[#F9F9F7] border border-transparent px-6 py-3.5 font-sans font-bold uppercase tracking-widest text-xs transition-all duration-200 hover:bg-white hover:text-[#111111] hover:border-[#111111] cursor-pointer min-h-[44px] min-w-[44px]"
+                disabled={state.submitting}
+                className="w-full bg-[#111111] text-[#F9F9F7] border border-transparent px-6 py-3.5 font-sans font-bold uppercase tracking-widest text-xs transition-all duration-200 hover:bg-white hover:text-[#111111] hover:border-[#111111] cursor-pointer min-h-[44px] min-w-[44px] disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ borderRadius: '0px' }}
               >
-                Send Inquiry
+                {state.submitting ? 'Sending...' : 'Send Inquiry'}
               </button>
             </div>
           )}
