@@ -94,37 +94,43 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Performance Metrics */}
+            {/* Business Growth Metrics */}
             <div className="mt-6 border border-[#111111] bg-[#F9F9F7]">
               <div className="bg-[#111111] text-[#F9F9F7] text-[10px] font-mono uppercase tracking-widest px-3 py-1 font-bold">
-                {lang === 'en' ? 'PERFORMANCE BENCHMARKS' : 'TOLOK UKUR PERFORMA'}
+                {lang === 'en' ? 'BUSINESS GROWTH IMPACT' : 'IMPAK PERTUMBUHAN BISNIS'}
               </div>
               <table className="w-full text-left font-mono text-xs border-collapse">
                 <tbody>
                   <tr className="border-b border-[#111111]">
                     <td className="p-2.5 font-bold bg-[#E5E5E0]/40 w-1/2">
-                      {lang === 'en' ? 'AVG. LOAD TIME' : 'RATA-RATA WAKTU MUAT'}
+                      {lang === 'en' ? 'ORGANIC TRAFFIC' : 'TRAFIK ORGANIK'}
                     </td>
                     <td className="p-2.5 text-[#CC0000] font-bold">
-                      {lang === 'en' ? '0.6 SECONDS' : '0.6 DETIK'}
+                      {lang === 'en' ? '+240% AVERAGE' : '+240% RATA-RATA'}
                     </td>
-                  </tr>
-                  <tr className="border-b border-[#111111]">
-                    <td className="p-2.5 font-bold bg-[#E5E5E0]/40">LIGHTHOUSE</td>
-                    <td className="p-2.5 text-neutral-900 font-bold">100 / 100</td>
                   </tr>
                   <tr className="border-b border-[#111111]">
                     <td className="p-2.5 font-bold bg-[#E5E5E0]/40">
-                      {lang === 'en' ? 'CLIENT RETENTION' : 'RETENSI KLIEN'}
+                      {lang === 'en' ? 'CONVERSION RATE' : 'TINGKAT KONVERSI'}
                     </td>
-                    <td className="p-2.5 text-neutral-900 font-bold">100%</td>
+                    <td className="p-2.5 text-neutral-900 font-bold">
+                      {lang === 'en' ? '+35% AVG. RISE' : '+35% RATA-RATA NAIK'}
+                    </td>
+                  </tr>
+                  <tr className="border-b border-[#111111]">
+                    <td className="p-2.5 font-bold bg-[#E5E5E0]/40">
+                      {lang === 'en' ? 'SALES LEADS' : 'LEAD PENJUALAN'}
+                    </td>
+                    <td className="p-2.5 text-neutral-900 font-bold">
+                      {lang === 'en' ? '3x MORE LEADS' : '3x LEBIH BANYAK'}
+                    </td>
                   </tr>
                   <tr>
                     <td className="p-2.5 font-bold bg-[#E5E5E0]/40">
-                      {lang === 'en' ? 'RESPONSE TIME' : 'WAKTU RESPON'}
+                      {lang === 'en' ? 'BOUNCE RATE' : 'RASIO PANTUL'}
                     </td>
                     <td className="p-2.5 text-neutral-900 font-bold">
-                      {lang === 'en' ? '< 4 HOURS' : '< 4 JAM'}
+                      {lang === 'en' ? '-50% REDUCTION' : '-50% PENGURANGAN'}
                     </td>
                   </tr>
                 </tbody>
