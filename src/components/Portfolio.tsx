@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../hooks/useLanguage';
 
 interface CaseStudy {
   id: string;
@@ -11,8 +12,9 @@ interface CaseStudy {
 
 export default function Portfolio() {
   const [activeCase, setActiveCase] = useState<string | null>(null);
+  const lang = useLanguage();
 
-  const cases: CaseStudy[] = [
+  const casesEn: CaseStudy[] = [
     {
       id: "manyarmotor",
       title: "HOW WE HELPED AN AUTO REPAIR SHOP INCREASE BOOKINGS BY 40%",
@@ -75,12 +77,81 @@ export default function Portfolio() {
     }
   ];
 
+  const casesId: CaseStudy[] = [
+    {
+      id: "manyarmotor",
+      title: "BAGAIMANA KAMI MEMBANTU BENGKEL OTOMOTIF MENINGKATKAN PEMESANAN SEBESAR 40%",
+      industry: "OTOMOTIF · SURABAYA",
+      subtitle: "Pembangunan ulang situs web sepenuhnya yang mengubah situs lambat menjadi mesin penghasil prospek.",
+      content: [
+        "Situs web klien yang lama dibangun di atas template yang lambat — memuat lebih dari 6 detik di seluler dan tidak terlihat di Google. Pelanggan beralih menghubungi pesaing. Kami membangun kembali seluruh platform dari awal menggunakan arsitektur situs statis modern dengan SEO di setiap halaman.",
+        "Dalam 60 hari setelah peluncuran, lalu lintas pencarian organik meningkat sebesar 240%. Pemesanan seluler melonjak 40% karena waktu muat halaman turun di bawah 0,6 detik. Situs ini sekarang mendapat skor sempurna 100/100 di Google Lighthouse — mengungguli semua pesaing di area tersebut."
+      ],
+      metrics: [
+        { label: "WAKTU MUAT", value: "0.6d" },
+        { label: "LIGHTHOUSE", value: "100/100" },
+        { label: "TRAFIK", value: "+240%" }
+      ],
+    },
+    {
+      id: "sagahealth",
+      title: "MEMBANGUN PLATFORM AKSESIBEL UNTUK SEKOLAH KEBUTUHAN KHUSUS",
+      industry: "PENDIDIKAN · KESEHATAN",
+      subtitle: "Portal web inklusif yang dirancang untuk orang tua, guru, dan administrator di sekolah kebutuhan khusus.",
+      content: [
+        "Sekolah membutuhkan situs web yang dapat dinavigasi dengan mudah oleh orang tua di perangkat apa pun, termasuk ponsel kelas bawah. Kami membangun portal yang bersih dan mudah diakses dengan modul pelacakan kesehatan dan direktori yang dapat dicari — semuanya dirancang untuk memenuhi standar aksesibilitas AAA.",
+        "Kecepatan kueri database meningkat 3x, dan portal mencapai peringkat aksesibilitas tertinggi yang dimungkinkan. Orang tua dan guru sekarang dapat mengakses direktori pendidikan secara instan, bahkan pada koneksi seluler yang lambat di daerah pedesaan."
+      ],
+      metrics: [
+        { label: "AKSESIBILITAS", value: "AAA" },
+        { label: "KECEPATAN KUERI", value: "45ms" },
+        { label: "RATING USER", value: "9.8/10" }
+      ],
+    },
+    {
+      id: "sawargi",
+      title: "MEMOTONG BIAYA LAYANAN PELANGGAN HOTEL SEBESAR 35% DENGAN AI",
+      industry: "PERHOTELAN · INTEGRASI AI",
+      subtitle: "Chatbot AI khusus yang menangani pemesanan dan pertanyaan tamu sepanjang waktu.",
+      content: [
+        "Resepsionis hotel kewalahan — staf menghabiskan waktu berjam-jam untuk menjawab pertanyaan yang sama tentang ketersediaan kamar, harga, dan waktu check-in. Kami menerapkan chatbot bertenaga RAG khusus yang terhubung ke situs web dan saluran Telegram mereka.",
+        "Bot sekarang menangani 98% pertanyaan rutin tanpa intervensi manusia. Waktu respons turun dari 15 menit menjadi 1,2 detik, dan biaya operasional layanan pelanggan berkurang sebesar 35%. Staf hotel kini dapat fokus pada pengalaman tamu secara langsung daripada pengiriman pesan berulang."
+      ],
+      metrics: [
+        { label: "OTOMATISASI", value: "98.2%" },
+        { label: "RESPONS", value: "1.2d" },
+        { label: "BIAYA HEMAT", value: "-35%" }
+      ],
+    },
+    {
+      id: "checklist",
+      title: "ALAT DESKTOP KUSTOM YANG MENGURANGI KESALAHAN TRADING SEBESAR 75%",
+      industry: "FINTECH · APLIKASI DESKTOP",
+      subtitle: "Overlay daftar periksa melayang yang menjaga disiplin dan akuntabilitas para trader.",
+      content: [
+        "Klien — seorang trader independen — kehilangan uang karena keputusan impulsif. Mereka membutuhkan alat yang memaksa mereka untuk mengikuti aturan mereka sendiri sebelum masuk ke perdagangan apa pun. Kami membangun widget desktop ringan yang melayang secara transparan di atas platform perdagangan mereka.",
+        "Overlay daftar periksa berjalan dengan penggunaan CPU mendekati nol dan meminta pengguna melalui alur verifikasi ketat sebelum setiap transaksi. Tingkat kesalahan impulsif turun sebesar 75%, dan klien melaporkan peningkatan profitabilitas yang signifikan dalam bulan pertama penggunaan."
+      ],
+      metrics: [
+        { label: "PENGGUNAAN CPU", value: "0.2%" },
+        { label: "KESALAHAN", value: "-75%" },
+        { label: "FORMAT", value: "DESKTOP" }
+      ],
+    }
+  ];
+
+  const cases = lang === 'en' ? casesEn : casesId;
+
   return (
     <section id="work" className="max-w-screen-xl mx-auto px-4 py-16 border-b-2 border-[#111111] bg-[#F9F9F7]">
       {/* Section Header */}
       <div className="mb-12 border-b-2 border-[#111111] pb-4">
-        <div className="font-mono text-xs uppercase tracking-widest text-neutral-600 font-bold mb-2">Case Studies // Real Results for Real Businesses</div>
-        <h2 className="font-serif text-4xl md:text-5xl font-black uppercase text-[#111111] tracking-tight">SELECTED WORK</h2>
+        <div className="font-mono text-xs uppercase tracking-widest text-neutral-600 font-bold mb-2">
+          {lang === 'en' ? 'Case Studies // Real Results for Real Businesses' : 'Studi Kasus // Hasil Nyata untuk Bisnis Nyata'}
+        </div>
+        <h2 className="font-serif text-4xl md:text-5xl font-black uppercase text-[#111111] tracking-tight">
+          {lang === 'en' ? 'SELECTED WORK' : 'KARYA TERPILIH'}
+        </h2>
       </div>
 
       {/* Asymmetric Newspaper Grids */}
@@ -140,7 +211,9 @@ export default function Portfolio() {
                     onClick={() => setActiveCase(activeCase === item.id ? null : item.id)}
                     className="text-[#CC0000] font-bold hover:underline underline-offset-4 decoration-2 cursor-pointer bg-transparent border-none p-0 text-left tracking-widest"
                   >
-                    {activeCase === item.id ? "Show Less" : "Read Full Story"}
+                    {activeCase === item.id 
+                      ? (lang === 'en' ? "Show Less" : "Tampilkan Lebih Sedikit") 
+                      : (lang === 'en' ? "Read Full Story" : "Baca Selengkapnya")}
                   </button>
                 </div>
               </div>

@@ -71,3 +71,11 @@
     color: #CC0000;
   }
 }
+
+/* Language Switcher Visibility Rules */
+html.lang-en .lang-id {
+  display: none !important;
+}
+html.lang-id .lang-en {
+  display: none !important;
+}

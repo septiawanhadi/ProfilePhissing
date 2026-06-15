@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../hooks/useLanguage';
 
 interface FaqItem {
   question: string;
@@ -7,8 +8,9 @@ interface FaqItem {
 
 export default function Faq() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const lang = useLanguage();
 
-  const items: FaqItem[] = [
+  const itemsEn: FaqItem[] = [
     {
       question: "HOW MUCH DOES A WEBSITE COST?",
       response: "Our projects typically range from $300 to $2,000 depending on complexity. A simple business website starts around $300–$500. A full custom build with SEO optimization, multiple pages, and interactive features lands in the $800–$1,500 range. AI chatbot integrations and custom tools are quoted separately. We always provide a fixed-price quote upfront — no hourly billing, no surprises."
@@ -31,12 +33,41 @@ export default function Faq() {
     }
   ];
 
+  const itemsId: FaqItem[] = [
+    {
+      question: "BERAPA BIAYA PEMBUATAN SITUS WEB?",
+      response: "Proyek kami biasanya berkisar dari $300 hingga $2,000 tergantung pada kompleksitasnya. Situs web bisnis sederhana mulai dari sekitar $300–$500. Pembuatan kustom penuh dengan optimasi SEO, banyak halaman, dan fitur interaktif berkisar antara $800–$1,500. Integrasi chatbot AI dan alat kustom ditawarkan secara terpisah. Kami selalu memberikan harga tetap di muka — tanpa biaya per jam, tanpa kejutan."
+    },
+    {
+      question: "SAYA BERBASIS DI LONDON / AS — APAKAH BISA BEKERJA DENGAN KLIEN INTERNASIONAL?",
+      response: "Tentu saja. Kami bekerja dengan klien di seluruh Inggris, Eropa, AS, dan Asia Tenggara setiap hari. Kami berkomunikasi dalam bahasa Inggris, menggunakan alat asinkron seperti Slack dan email, serta mengatur jadwal panggilan di berbagai zona waktu (GMT+7, GMT, dan EST). Sebagian besar klien kami belum pernah mengunjungi kantor kami — dan mereka tidak perlu melakukannya. Semuanya ditangani secara remote dengan pembaruan kemajuan berkala."
+    },
+    {
+      question: "BERAPA LAMA WAKTU PENGERJAAN PROYEK?",
+      response: "Sebagian besar situs web dikirimkan dalam waktu 4–8 minggu dari peluncuran perdana. Proyek yang lebih sederhana (landing page, situs bisnis kecil) dapat selesai dalam 2–3 minggu. Penerapan chatbot AI biasanya memakan waktu 3–5 minggu termasuk pengujian. Kami akan memberikan lini masa yang jelas selama konsultasi gratis dan terus memberi Anda pembaruan selama proses pembuatan."
+    },
+    {
+      question: "APA YANG TERJADI SETELAH PELUNCURAN? APAKAH ANDA MENAWARKAN DUKUNGAN?",
+      response: "Anda memiliki 100% dari kode sumber — kami menyerahkan semuanya. Setelah peluncuran, kami menawarkan paket dukungan bulanan opsional untuk pembaruan, perubahan konten, dan pemantauan kinerja. Jika Anda lebih suka mengelolanya sendiri, kami akan memastikan tim Anda tahu caranya. Kami juga menyediakan 30 hari dukungan perbaikan bug gratis setelah setiap peluncuran."
+    },
+    {
+      question: "MENGAPA SAYA HARUS MEMILIH ANDA DARIPADA AGENSI YANG LEBIH BESAR?",
+      response: "Agensi besar mengenakan tarif yang lebih besar untuk pengerjaan yang lambat. Kami adalah tim kecil beranggotakan dua orang — setiap proyek mendapatkan perhatian langsung dari developer senior, bukan anak magang junior. Situs kami secara konsisten mendapat skor 100/100 di Google Lighthouse karena kami menulis setiap baris kode dengan tangan. Tanpa template, tanpa WordPress, tanpa bloat. Hanya pekerjaan yang cepat, bersih, dan berorientasi hasil."
+    }
+  ];
+
+  const items = lang === 'en' ? itemsEn : itemsId;
+
   return (
     <section id="faq" className="max-w-screen-xl mx-auto px-4 py-16 border-b-2 border-[#111111] bg-[#F9F9F7]">
       {/* Section Header */}
       <div className="mb-12 border-b-2 border-[#111111] pb-4">
-        <div className="font-mono text-xs uppercase tracking-widest text-neutral-600 font-bold mb-2">FAQ // Common Questions From Our Clients</div>
-        <h2 className="font-serif text-4xl md:text-5xl font-black uppercase text-[#111111] tracking-tight">FREQUENTLY ASKED QUESTIONS</h2>
+        <div className="font-mono text-xs uppercase tracking-widest text-neutral-600 font-bold mb-2">
+          {lang === 'en' ? 'FAQ // Common Questions From Our Clients' : 'FAQ // Pertanyaan Umum Dari Klien Kami'}
+        </div>
+        <h2 className="font-serif text-4xl md:text-5xl font-black uppercase text-[#111111] tracking-tight">
+          {lang === 'en' ? 'FREQUENTLY ASKED QUESTIONS' : 'PERTANYAAN YANG SERING DIAJUKAN'}
+        </h2>
       </div>
 
       {/* Accordion Layout */}

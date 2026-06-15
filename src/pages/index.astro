@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import Navbar from '../layouts/Navbar.astro';
 import Ticker from '../components/Ticker.tsx';
 import SocialProof from '../components/SocialProof.astro';
 import Hero from '../components/Hero.tsx';
@@ -16,11 +17,12 @@ import Footer from '../components/Footer.astro';
 
 <Layout title="Web Cunts — Performance-Driven Web Solutions for Growing Businesses">
   <Header />
+  <Navbar />
   <Ticker client:load />
   
   <main class="bg-[#F9F9F7]">
     <SocialProof />
-    <Hero />
+    <Hero client:load />
     <Services />
     <WhyChooseUs />
     <Process client:load />

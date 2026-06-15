@@ -3,8 +3,10 @@
 const founders = [
   {
     name: "Didra Rayyan Herlambang",
-    role: "Full-Stack Developer & Co-Founder",
-    bio: "Specializes in enterprise web revamps, SEO architecture, and AI integrations. Currently engineering at PT Berlian Sistem Informasi. Built manyarmotor.com (100/100 Lighthouse) and the Sawargi AI chatbot system.",
+    roleEn: "Full-Stack Developer & Co-Founder",
+    roleId: "Full-Stack Developer & Co-Founder",
+    bioEn: "Specializes in enterprise web revamps, SEO architecture, and AI integrations. Currently engineering at PT Berlian Sistem Informasi. Built manyarmotor.com (100/100 Lighthouse) and the Sawargi AI chatbot system.",
+    bioId: "Spesialisasi dalam perbaikan web perusahaan, arsitektur SEO, dan integrasi AI. Saat ini bekerja sebagai engineer di PT Berlian Sistem Informasi. Membangun manyarmotor.com (Lighthouse 100/100) dan sistem chatbot AI Sawargi.",
     github: "https://github.com/didradev",
     portfolio: "https://didradev.netlify.app/",
     initials: "DRH",
@@ -12,8 +14,10 @@ const founders = [
   },
   {
     name: "Septiawan Hadi Prasetyo",
-    role: "Full-Stack Developer | AI & Data Analyst & Co-Founder",
-    bio: "Specializes in accessible interfaces, health tech platforms, and school management systems. Built SagaHealth diagnostics and the SLB Raudhatul Zannah school portal — both achieving AAA accessibility ratings.",
+    roleEn: "Full-Stack Developer | AI & Data Analyst & Co-Founder",
+    roleId: "Full-Stack Developer | Analis Data & AI & Co-Founder",
+    bioEn: "Specializes in accessible interfaces, health tech platforms, and school management systems. Built SagaHealth diagnostics and the SLB Raudhatul Zannah school portal — both achieving AAA accessibility ratings.",
+    bioId: "Spesialisasi dalam antarmuka aksesibel, platform teknologi kesehatan, dan sistem manajemen sekolah. Membangun SagaHealth diagnostics dan portal sekolah SLB Raudhatul Zannah — keduanya meraih peringkat aksesibilitas AAA.",
     github: "https://github.com/septiawanhadi",
     portfolio: "https://septiawanhadi.github.io/septiawanhadip/",
     initials: "SHP",
@@ -25,8 +29,14 @@ const founders = [
 <section class="max-w-screen-xl mx-auto px-4 py-16 border-b-2 border-[#111111] bg-[#F9F9F7]">
   <!-- Section Header -->
   <div class="mb-12 border-b-2 border-[#111111] pb-4">
-    <div class="font-mono text-xs uppercase tracking-widest text-neutral-600 font-bold mb-2">Team // The People Behind the Code</div>
-    <h2 class="font-serif text-4xl md:text-5xl font-black uppercase text-[#111111] tracking-tight">WHO WE ARE</h2>
+    <div class="font-mono text-xs uppercase tracking-widest text-neutral-600 font-bold mb-2">
+      <span class="lang-en">Team // The People Behind the Code</span>
+      <span class="lang-id">Tim // Orang-orang di Balik Kode</span>
+    </div>
+    <h2 class="font-serif text-4xl md:text-5xl font-black uppercase text-[#111111] tracking-tight">
+      <span class="lang-en">WHO WE ARE</span>
+      <span class="lang-id">TENTANG KAMI</span>
+    </h2>
   </div>
 
   <!-- 2-Column Team Grid -->
@@ -55,10 +65,16 @@ const founders = [
 
         <!-- Name & Role -->
         <h3 class="font-serif text-2xl font-bold uppercase text-[#111111] mb-1 leading-tight">{founder.name}</h3>
-        <div class="font-mono text-[10px] uppercase tracking-widest text-[#CC0000] font-bold mb-4">{founder.role}</div>
+        <div class="font-mono text-[10px] uppercase tracking-widest text-[#CC0000] font-bold mb-4">
+          <span class="lang-en">{founder.roleEn}</span>
+          <span class="lang-id">{founder.roleId}</span>
+        </div>
 
         <!-- Bio -->
-        <p class="font-body text-sm text-neutral-600 text-justify mb-6 leading-relaxed">{founder.bio}</p>
+        <p class="font-body text-sm text-neutral-600 text-justify mb-6 leading-relaxed">
+          <span class="lang-en">{founder.bioEn}</span>
+          <span class="lang-id">{founder.bioId}</span>
+        </p>
 
         <!-- Social Links -->
         <div class="flex gap-3">

@@ -1,10 +1,10 @@
 ---
 // SocialProof.astro — Compact trust metrics strip
 const stats = [
-  { value: "10+", label: "Projects Delivered" },
-  { value: "3", label: "Countries Served" },
-  { value: "100/100", label: "Lighthouse Average" },
-  { value: "< 4hrs", label: "Response Time" },
+  { value: "10+", labelEn: "Projects Delivered", labelId: "Proyek Selesai" },
+  { value: "3", labelEn: "Countries Served", labelId: "Negara Dilayani" },
+  { value: "100/100", labelEn: "Lighthouse Average", labelId: "Rata-rata Lighthouse" },
+  { value: "< 4hrs", labelEn: "Response Time", labelId: "Waktu Respon" },
 ];
 ---
 
@@ -16,7 +16,8 @@ const stats = [
           {stat.value}
         </div>
         <div class="font-mono text-[10px] uppercase tracking-widest text-neutral-400 font-bold">
-          {stat.label}
+          <span class="lang-en">{stat.labelEn}</span>
+          <span class="lang-id">{stat.labelId}</span>
         </div>
       </div>
     ))}

@@ -12,6 +12,10 @@ const { title, description = "Web Cunts - The Ultimate Full-Stack Web Engineerin
 <!doctype html>
 <html lang="en">
 	<head>
+		<script is:inline>
+			const savedLang = localStorage.getItem('web-agency-lang') || 'en';
+			document.documentElement.classList.add(`lang-${savedLang}`);
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
