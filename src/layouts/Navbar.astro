@@ -1,102 +1,214 @@
 ---
-// Navbar.astro — Modular navigation bar with language selector toggle
+// Navbar.astro — Modular navigation bar with language selector toggle and collapsible mobile drawer
 ---
 
 <!-- Sticky Nav Bar -->
 <div class="sticky top-0 z-50 bg-[#F9F9F7] border-b-4 border-[#111111] w-full">
   <div class="max-w-screen-xl mx-auto px-4">
-    <nav class="relative flex flex-col md:flex-row items-center justify-center py-3 text-xs md:text-sm font-sans font-bold uppercase tracking-widest gap-y-3" aria-label="Main navigation">
-      <div class="flex flex-wrap gap-x-8 gap-y-2 justify-center">
-        <a href="#home" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-home">
+    <nav class="relative py-3 text-xs md:text-sm font-sans font-bold uppercase tracking-widest" aria-label="Main navigation">
+      
+      <!-- Top Row Container: Flex justify-between on mobile, center on desktop -->
+      <div class="flex items-center justify-between md:justify-center w-full">
+        <!-- Menu Button (Visible on mobile only) -->
+        <button id="mobile-menu-btn" class="md:hidden flex items-center gap-2 border border-[#111111] bg-white px-3 py-1.5 hover:bg-[#111111] hover:text-[#F9F9F7] transition-all duration-150 font-mono text-xs font-bold" aria-expanded="false" aria-controls="mobile-menu-drawer">
+          <span class="menu-text-open lang-en">MENU</span>
+          <span class="menu-text-open lang-id">MENU</span>
+          <span class="menu-text-close lang-en hidden">CLOSE</span>
+          <span class="menu-text-close lang-id hidden">TUTUP</span>
+          <svg class="h-3 w-3 fill-none stroke-current stroke-[3]" viewBox="0 0 24 24" id="menu-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" class="menu-icon-bars" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" class="menu-icon-cross hidden" />
+          </svg>
+        </button>
+
+        <!-- Desktop Links: Hidden on Mobile, Centered on Desktop -->
+        <div class="hidden md:flex flex-wrap gap-x-8 gap-y-2 justify-center">
+          <a href="#home" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-home">
+            <span class="lang-en">Home</span>
+            <span class="lang-id">Beranda</span>
+          </a>
+          <a href="#services" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-services">
+            <span class="lang-en">Services</span>
+            <span class="lang-id">Layanan</span>
+          </a>
+          <a href="#why-choose-us" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-why-choose-us">
+            <span class="lang-en">Why Us</span>
+            <span class="lang-id">Mengapa Kami</span>
+          </a>
+          <a href="#work" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-work">
+            <span class="lang-en">Work</span>
+            <span class="lang-id">Portofolio</span>
+          </a>
+          <a href="#faq" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-faq">
+            <span class="lang-en">FAQ</span>
+            <span class="lang-id">Tanya Jawab</span>
+          </a>
+          <a href="#contact" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-contact">
+            <span class="lang-en">Contact</span>
+            <span class="lang-id">Kontak</span>
+          </a>
+        </div>
+
+        <!-- Language Selector dropdown: aligned right on mobile flex flow, absolute right on desktop -->
+        <div class="relative md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 inline-block text-left font-mono text-xs uppercase" id="lang-dropdown">
+          <button type="button" class="border border-[#111111] bg-white px-3 py-1.5 flex items-center gap-1 hover:bg-[#111111] hover:text-[#F9F9F7] transition-all duration-150" id="lang-btn">
+            <span id="current-lang-label">EN</span>
+            <svg class="h-3 w-3 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+          <div class="absolute right-0 mt-1 w-20 border border-[#111111] bg-white hidden z-50 shadow-md" id="lang-menu">
+            <button class="w-full text-left px-3 py-1.5 hover:bg-[#111111] hover:text-[#F9F9F7] transition-colors" data-lang="en">EN</button>
+            <button class="w-full text-left px-3 py-1.5 hover:bg-[#111111] hover:text-[#F9F9F7] transition-colors border-t border-[#111111]" data-lang="id">ID</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collapsible Mobile Drawer Menu (Visible on mobile only, expand down) -->
+      <div id="mobile-menu-drawer" class="hidden md:hidden w-full border-t border-dashed border-[#111111] mt-3 pt-3 flex-col gap-1 text-left font-bold">
+        <a href="#home" class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-home">
           <span class="lang-en">Home</span>
           <span class="lang-id">Beranda</span>
+          <span class="text-neutral-400 font-mono text-[10px]">I</span>
         </a>
-        <a href="#services" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-services">
+        <a href="#services" class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-services">
           <span class="lang-en">Services</span>
           <span class="lang-id">Layanan</span>
+          <span class="text-neutral-400 font-mono text-[10px]">II</span>
         </a>
-        <a href="#why-choose-us" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-why-choose-us">
+        <a href="#why-choose-us" class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-why-choose-us">
           <span class="lang-en">Why Us</span>
           <span class="lang-id">Mengapa Kami</span>
+          <span class="text-neutral-400 font-mono text-[10px]">III</span>
         </a>
-        <a href="#work" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-work">
+        <a href="#work" class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-work">
           <span class="lang-en">Work</span>
           <span class="lang-id">Portofolio</span>
+          <span class="text-neutral-400 font-mono text-[10px]">IV</span>
         </a>
-        <a href="#faq" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-faq">
+        <a href="#faq" class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-faq">
           <span class="lang-en">FAQ</span>
           <span class="lang-id">Tanya Jawab</span>
+          <span class="text-neutral-400 font-mono text-[10px]">V</span>
         </a>
-        <a href="#contact" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-contact">
+        <a href="#contact" class="mobile-nav-link py-2.5 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-contact">
           <span class="lang-en">Contact</span>
           <span class="lang-id">Kontak</span>
+          <span class="text-neutral-400 font-mono text-[10px]">VI</span>
         </a>
       </div>
 
-      <!-- Language Selector -->
-      <div class="relative md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 inline-block text-left font-mono text-xs uppercase" id="lang-dropdown">
-        <button type="button" class="border border-[#111111] bg-white px-3 py-1.5 flex items-center gap-1 hover:bg-[#111111] hover:text-[#F9F9F7] transition-all duration-150" id="lang-btn">
-          <span id="current-lang-label">EN</span>
-          <svg class="h-3 w-3 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="3">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-          </svg>
-        </button>
-        <div class="absolute right-0 mt-1 w-20 border border-[#111111] bg-white hidden z-50 shadow-md" id="lang-menu">
-          <button class="w-full text-left px-3 py-1.5 hover:bg-[#111111] hover:text-[#F9F9F7] transition-colors" data-lang="en">EN</button>
-          <button class="w-full text-left px-3 py-1.5 hover:bg-[#111111] hover:text-[#F9F9F7] transition-colors border-t border-[#111111]" data-lang="id">ID</button>
-        </div>
-      </div>
     </nav>
   </div>
 </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // ----------------------------------------------------
+    // Language Dropdown Selector Logic
+    // ----------------------------------------------------
     const dropdown = document.getElementById('lang-dropdown');
     const btn = document.getElementById('lang-btn');
     const menu = document.getElementById('lang-menu');
     const label = document.getElementById('current-lang-label');
 
-    if (!dropdown || !btn || !menu || !label) return;
+    if (btn && menu && label) {
+      // Set initial label on mount
+      const savedLang = localStorage.getItem('web-agency-lang') || 'en';
+      label.textContent = savedLang.toUpperCase();
 
-    // Set initial label on mount
-    const savedLang = localStorage.getItem('web-agency-lang') || 'en';
-    label.textContent = savedLang.toUpperCase();
-
-    // Toggle menu
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menu.classList.toggle('hidden');
-    });
-
-    // Close when clicking outside
-    document.addEventListener('click', () => {
-      menu.classList.add('hidden');
-    });
-
-    // Handle language selection
-    const options = menu.querySelectorAll('button[data-lang]');
-    options.forEach(opt => {
-      opt.addEventListener('click', (e) => {
+      // Toggle menu
+      btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        const lang = opt.getAttribute('data-lang') || 'en';
-        
-        // Update label
-        label.textContent = lang.toUpperCase();
-        
-        // Update document element class
-        document.documentElement.classList.remove('lang-en', 'lang-id');
-        document.documentElement.classList.add(`lang-${lang}`);
-        
-        // Save choice
-        localStorage.setItem('web-agency-lang', lang);
-        
-        // Dispatch custom event for React components
-        window.dispatchEvent(new CustomEvent('languagechange', { detail: { lang } }));
-        
-        // Close menu
+        menu.classList.toggle('hidden');
+      });
+
+      // Close when clicking outside
+      document.addEventListener('click', () => {
         menu.classList.add('hidden');
       });
-    });
+
+      // Handle language selection
+      const options = menu.querySelectorAll('button[data-lang]');
+      options.forEach(opt => {
+        opt.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const lang = opt.getAttribute('data-lang') || 'en';
+          
+          // Update label
+          label.textContent = lang.toUpperCase();
+          
+          // Update document element class
+          document.documentElement.classList.remove('lang-en', 'lang-id');
+          document.documentElement.classList.add(`lang-${lang}`);
+          
+          // Save choice
+          localStorage.setItem('web-agency-lang', lang);
+          
+          // Dispatch custom event for React components
+          window.dispatchEvent(new CustomEvent('languagechange', { detail: { lang } }));
+          
+          // Close menu
+          menu.classList.add('hidden');
+        });
+      });
+    }
+
+    // ----------------------------------------------------
+    // Mobile Drawer Toggle Logic
+    // ----------------------------------------------------
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+    
+    if (mobileMenuBtn && mobileMenuDrawer) {
+      const openLabels = mobileMenuBtn.querySelectorAll('.menu-text-open');
+      const closeLabels = mobileMenuBtn.querySelectorAll('.menu-text-close');
+      const menuIconBars = mobileMenuBtn.querySelector('.menu-icon-bars');
+      const menuIconCross = mobileMenuBtn.querySelector('.menu-icon-cross');
+
+      const toggleMobileMenu = (e: Event) => {
+        e.stopPropagation();
+        const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+        
+        // Toggle expanded state attribute
+        mobileMenuBtn.setAttribute('aria-expanded', String(!isExpanded));
+        
+        // Toggle drawer visibility
+        mobileMenuDrawer.classList.toggle('hidden');
+        mobileMenuDrawer.classList.toggle('flex');
+        
+        // Toggle Text labels
+        openLabels.forEach(el => el.classList.toggle('hidden'));
+        closeLabels.forEach(el => el.classList.toggle('hidden'));
+        
+        // Toggle SVG paths
+        if (menuIconBars && menuIconCross) {
+          menuIconBars.classList.toggle('hidden');
+          menuIconCross.classList.toggle('hidden');
+        }
+      };
+
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+      // Close mobile drawer when clicking a mobile nav link
+      const mobileNavLinks = mobileMenuDrawer.querySelectorAll('.mobile-nav-link');
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          // Collapse drawer
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          mobileMenuDrawer.classList.add('hidden');
+          mobileMenuDrawer.classList.remove('flex');
+          
+          // Reset button texts/icons
+          openLabels.forEach(el => el.classList.remove('hidden'));
+          closeLabels.forEach(el => el.classList.add('hidden'));
+          
+          if (menuIconBars && menuIconCross) {
+            menuIconBars.classList.remove('hidden');
+            menuIconCross.classList.add('hidden');
+          }
+        });
+      });
+    }
   });
 </script>
