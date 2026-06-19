@@ -79,7 +79,7 @@ export default function Hero() {
                 
                 {/* Agency Monogram */}
                 <div className="z-0 text-center uppercase tracking-widest text-neutral-800 transition-transform duration-500 group-hover:scale-110">
-                  <div className="font-serif text-7xl font-black mb-2">WC</div>
+                  <div className="font-serif text-7xl font-black mb-2">G</div>
                   <div className="font-mono text-[10px] text-neutral-600 font-bold border-t border-[#111111] pt-2">
                     {lang === 'en' ? 'EST. 2026 · AGENCY' : 'SEJAK 2026 · AGENSI'}
                   </div>
@@ -89,8 +89,8 @@ export default function Hero() {
               {/* Caption */}
               <div className="mt-2 text-[10px] font-mono uppercase tracking-wider text-neutral-600 leading-tight">
                 <strong>{lang === 'en' ? 'Fig 1.1:' : 'Gbr 1.1:'}</strong> {lang === 'en' 
-                  ? 'Web Cunts Agency — Jakarta & Surabaya, serving clients in London, Europe, US, and Southeast Asia.'
-                  : 'Web Cunts Agency — Jakarta & Surabaya, melayani klien di London, Eropa, AS, dan Asia Tenggara.'}
+                  ? 'Gemilang Agency — Jakarta & Surabaya, serving clients in London, Europe, US, and Southeast Asia.'
+                  : 'Gemilang Agency — Jakarta & Surabaya, melayani klien di London, Eropa, AS, dan Asia Tenggara.'}
               </div>
             </div>
 

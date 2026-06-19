@@ -51,11 +51,11 @@ export default function Contact() {
               : "Setiap proyek mendapatkan penawaran harga tetap di awal. Anda selalu tahu berapa biaya yang akan dibayarkan sebelum pekerjaan dimulai."}
           </p>
           <div className="border-t border-dashed border-[#111111] pt-4 space-y-3">
-            <a href="mailto:contact@webcunts.dev" className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-700 hover:text-[#CC0000] transition-colors">
+            <a href="mailto:contact@gemilang.dev" className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-700 hover:text-[#CC0000] transition-colors">
               <span className="inline-flex items-center justify-center border border-[#111111] h-6 w-6 shrink-0 hover:bg-[#111111] hover:text-[#F9F9F7] transition-colors">
                 <svg className="h-3 w-3 fill-none stroke-current" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               </span>
-              contact@webcunts.dev
+              contact@gemilang.dev
             </a>
             <div className="font-mono text-[10px] uppercase tracking-wider text-neutral-500 pt-2">
               <div>{lang === 'en' ? "• We work across GMT+7, GMT, and EST timezones" : "• Kami bekerja di zona waktu GMT+7, GMT, dan EST"}</div>

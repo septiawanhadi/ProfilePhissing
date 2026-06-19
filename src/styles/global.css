@@ -79,3 +79,31 @@ html.lang-en .lang-id {
 html.lang-id .lang-en {
   display: none !important;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Custom Neo-Brutalist Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #F9F9F7;
+  border-right: 2px solid #111111;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #111111;
+  border: 1px solid #111111;
+}
+.custom-scrollbar {
+  scrollbar-color: #111111 #F9F9F7;
+  scrollbar-width: thin;
+}
