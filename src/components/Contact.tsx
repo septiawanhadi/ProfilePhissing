@@ -138,11 +138,21 @@ export default function Contact() {
                   className="border-b-2 border-[#111111] bg-transparent px-3 py-2.5 font-mono text-sm focus-visible:bg-neutral-100 focus-visible:outline-none cursor-pointer"
                   style={{ borderRadius: '0px' }}
                 >
-                  <option value="300-500">$300 – $500 USD</option>
-                  <option value="500-1000">$500 – $1,000 USD</option>
-                  <option value="1000-1500">$1,000 – $1,500 USD</option>
-                  <option value="1500-2000">$1,500 – $2,000 USD</option>
-                  <option value="2000-plus">$2,000+ USD</option>
+                  <option value="300-500">
+                    {lang === 'en' ? '$300 – $500 USD' : 'Rp 4.500.000 – Rp 7.500.000 IDR'}
+                  </option>
+                  <option value="500-1000">
+                    {lang === 'en' ? '$500 – $1,000 USD' : 'Rp 7.500.000 – Rp 15.000.000 IDR'}
+                  </option>
+                  <option value="1000-1500">
+                    {lang === 'en' ? '$1,000 – $1,500 USD' : 'Rp 15.000.000 – Rp 22.500.000 IDR'}
+                  </option>
+                  <option value="1500-2000">
+                    {lang === 'en' ? '$1,500 – $2,000 USD' : 'Rp 22.500.000 – Rp 30.000.000 IDR'}
+                  </option>
+                  <option value="2000-plus">
+                    {lang === 'en' ? '$2,000+ USD' : 'Rp 30.000.000+ IDR'}
+                  </option>
                   <option value="not-sure">
                     {lang === 'en' ? "Not sure yet — let's discuss" : "Belum yakin — mari kita diskusikan"}
                   </option>
