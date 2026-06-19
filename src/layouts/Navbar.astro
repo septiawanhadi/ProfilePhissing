@@ -3,7 +3,7 @@
 ---
 
 <!-- Sticky Nav Bar -->
-<div class="sticky top-0 z-50 bg-[#F9F9F7] border-b-4 border-[#111111] w-full">
+<div class="sticky top-0 z-50 bg-[#F9F9F7] border-b-4 border-[#111111] w-full order-first md:order-none">
   <div class="max-w-screen-xl mx-auto px-4">
     <nav class="relative py-3 text-xs md:text-sm font-sans font-bold uppercase tracking-widest" aria-label="Main navigation">
       
@@ -65,7 +65,7 @@
       </div>
 
       <!-- Collapsible Mobile Drawer Menu (Visible on mobile only, expand down) -->
-      <div id="mobile-menu-drawer" class="hidden md:hidden w-full border-t border-dashed border-[#111111] mt-3 pt-3 flex-col gap-1 text-left font-bold">
+      <div id="mobile-menu-drawer" class="hidden md:hidden absolute top-full left-0 right-0 w-full bg-[#F9F9F7] border-b-4 border-[#111111] pt-3 flex-col gap-1 text-left font-bold z-50 shadow-lg px-2">
         <a href="#home" class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-home">
           <span class="lang-en">Home</span>
           <span class="lang-id">Beranda</span>

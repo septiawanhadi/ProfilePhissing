@@ -36,7 +36,7 @@ export default function Faq() {
   const itemsId: FaqItem[] = [
     {
       question: "BERAPA BIAYA PEMBUATAN SITUS WEB?",
-      response: "Proyek kami biasanya berkisar dari $300 hingga $2,000 tergantung pada kompleksitasnya. Situs web bisnis sederhana mulai dari sekitar $300–$500. Pembuatan kustom penuh dengan optimasi SEO, banyak halaman, dan fitur interaktif berkisar antara $800–$1,500. Integrasi chatbot AI dan alat kustom ditawarkan secara terpisah. Kami selalu memberikan harga tetap di muka — tanpa biaya per jam, tanpa kejutan."
+      response: "Proyek kami biasanya berkisar dari Rp 4.500.000 hingga Rp 30.000.000 IDR tergantung pada kompleksitasnya. Situs web bisnis sederhana mulai dari sekitar Rp 4.500.000–Rp 7.500.000 IDR. Pembuatan kustom penuh dengan optimasi SEO, banyak halaman, dan fitur interaktif berkisar antara Rp 12.000.000–Rp 22.500.000 IDR. Integrasi chatbot AI dan alat kustom ditawarkan secara terpisah. Kami selalu memberikan harga tetap di muka — tanpa biaya per jam, tanpa kejutan."
     },
     {
       question: "SAYA BERBASIS DI LONDON / AS — APAKAH BISA BEKERJA DENGAN KLIEN INTERNASIONAL?",

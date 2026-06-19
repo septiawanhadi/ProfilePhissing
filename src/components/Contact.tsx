@@ -8,6 +8,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    projectType: 'landing-page',
     budget: '300-500',
     message: ''
   });
@@ -16,6 +17,7 @@ export default function Contact() {
     setFormData({
       name: '',
       email: '',
+      projectType: 'landing-page',
       budget: '300-500',
       message: ''
     });
@@ -126,6 +128,40 @@ export default function Contact() {
                 <ValidationError prefix="Email" field="email" errors={state.errors} className="font-mono text-xs text-[#CC0000] mt-1 block" />
               </div>
 
+              {/* Project Type */}
+              <div className="flex flex-col">
+                <label className="font-mono text-xs uppercase tracking-widest font-bold text-neutral-700 mb-1">
+                  {lang === 'en' ? "Project Type" : "Jenis Proyek"}
+                </label>
+                <select 
+                  name="projectType"
+                  value={formData.projectType}
+                  onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                  className="border-b-2 border-[#111111] bg-transparent px-3 py-2.5 font-mono text-sm focus-visible:bg-neutral-100 focus-visible:outline-none cursor-pointer"
+                  style={{ borderRadius: '0px' }}
+                >
+                  <option value="landing-page">
+                    {lang === 'en' ? 'Product Landing Page' : 'Halaman Landing Produk'}
+                  </option>
+                  <option value="company-profile">
+                    {lang === 'en' ? 'Company Profile / Business Site' : 'Profil Perusahaan / Situs Bisnis'}
+                  </option>
+                  <option value="ecommerce">
+                    {lang === 'en' ? 'E-Commerce / Online Store' : 'E-Commerce / Toko Online'}
+                  </option>
+                  <option value="web-app">
+                    {lang === 'en' ? 'Custom Web App / SaaS Dashboard' : 'Aplikasi Web Kustom / Dasbor SaaS'}
+                  </option>
+                  <option value="ai-bot">
+                    {lang === 'en' ? 'AI Chatbot / Automation System' : 'Chatbot AI / Sistem Otomatisasi'}
+                  </option>
+                  <option value="other">
+                    {lang === 'en' ? 'Other / Something Else' : 'Lainnya / Sesuatu yang Lain'}
+                  </option>
+                </select>
+                <ValidationError prefix="ProjectType" field="projectType" errors={state.errors} className="font-mono text-xs text-[#CC0000] mt-1 block" />
+              </div>
+
               {/* Budget */}
               <div className="flex flex-col">
                 <label className="font-mono text-xs uppercase tracking-widest font-bold text-neutral-700 mb-1">
@@ -138,11 +174,21 @@ export default function Contact() {
                   className="border-b-2 border-[#111111] bg-transparent px-3 py-2.5 font-mono text-sm focus-visible:bg-neutral-100 focus-visible:outline-none cursor-pointer"
                   style={{ borderRadius: '0px' }}
                 >
-                  <option value="300-500">$300 – $500 USD</option>
-                  <option value="500-1000">$500 – $1,000 USD</option>
-                  <option value="1000-1500">$1,000 – $1,500 USD</option>
-                  <option value="1500-2000">$1,500 – $2,000 USD</option>
-                  <option value="2000-plus">$2,000+ USD</option>
+                  <option value="300-500">
+                    {lang === 'en' ? '$300 – $500 USD' : 'Rp 4.500.000 – Rp 7.500.000 IDR'}
+                  </option>
+                  <option value="500-1000">
+                    {lang === 'en' ? '$500 – $1,000 USD' : 'Rp 7.500.000 – Rp 15.000.000 IDR'}
+                  </option>
+                  <option value="1000-1500">
+                    {lang === 'en' ? '$1,000 – $1,500 USD' : 'Rp 15.000.000 – Rp 22.500.000 IDR'}
+                  </option>
+                  <option value="1500-2000">
+                    {lang === 'en' ? '$1,500 – $2,000 USD' : 'Rp 22.500.000 – Rp 30.000.000 IDR'}
+                  </option>
+                  <option value="2000-plus">
+                    {lang === 'en' ? '$2,000+ USD' : 'Rp 30.000.000+ IDR'}
+                  </option>
                   <option value="not-sure">
                     {lang === 'en' ? "Not sure yet — let's discuss" : "Belum yakin — mari kita diskusikan"}
                   </option>
