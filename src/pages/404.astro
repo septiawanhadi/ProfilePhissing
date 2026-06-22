@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../layouts/Navbar.astro';
+import Ticker from '../components/Ticker.tsx';
+import NotFound from '../components/NotFound.tsx';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="404 Page Not Found — Gemilang">
+  <Navbar />
+  <Ticker client:load />
+  
+  <NotFound client:load />
+  
+  <Footer />
+</Layout>
