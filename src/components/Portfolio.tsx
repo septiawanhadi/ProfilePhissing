@@ -8,6 +8,7 @@ interface CaseStudy {
   industry: string;
   subtitle: string;
   content: string[];
+  link?: string;
 }
 
 export default function Portfolio() {
@@ -25,7 +26,8 @@ export default function Portfolio() {
       content: [
         "Manyar Auto Service had no web presence. As the sole developer and infrastructure engineer, we built and managed everything from scratch — architecture, codebase, Docker-based server deployment, domain management, SSL, and analytics. No agencies, no templates, no shortcuts.",
         "Continuous SEO crawling and indexing work delivered consistent high visibility in local search results. With full control over domain, server config, and analytics engine, the shop now operates a self-sufficient digital infrastructure that ranks and converts without ongoing third-party costs."
-      ]
+      ],
+      link: "https://manyarmotor.com"
     },
     {
       id: "sagahealth",
@@ -35,7 +37,8 @@ export default function Portfolio() {
       content: [
         "The school needed a website that parents could navigate easily on any device, including low-end phones. We built a clean, accessible portal with a health tracking module and a searchable directory — all designed to meet AAA accessibility standards.",
         "Database query speeds improved by 3x, and the portal achieved the highest accessibility rating possible. Parents and teachers can now access educational directories instantly, even on slow mobile connections in rural areas."
-      ]
+      ],
+      link: "https://github.com/septiawanhadi"
     },
     {
       id: "sawargi",
@@ -45,7 +48,8 @@ export default function Portfolio() {
       content: [
         "The hotel's front desk was overwhelmed — staff were spending hours answering the same questions about room availability, pricing, and check-in times. We deployed a custom RAG-powered chatbot that connects to both their website and Telegram channel.",
         "The bot now handles 98% of routine inquiries without human intervention. Response times dropped from 15 minutes to 1.2 seconds, and customer service overhead costs decreased by 35%. The hotel staff can now focus on in-person guest experience instead of repetitive messaging."
-      ]
+      ],
+      link: "https://github.com/didradev"
     },
     {
       id: "bsi",
@@ -55,7 +59,8 @@ export default function Portfolio() {
       content: [
         "PT Berlian Sistem Informasi needed their corporate website to reflect their enterprise positioning — but the existing site was underperforming on speed, security, and SEO. We rebuilt the entire platform using Next.js and Docker, with custom middleware handling every security layer.",
         "The revamp achieved a perfect 100/100 on Google Lighthouse for SEO and Best Practices. Critical VAPT-identified vulnerabilities (XSS, XSRF, HSTS) were fully remediated using Content Security Policy (CSP) nonces. The new infrastructure is containerized, crawler-optimized, and production-hardened."
-      ]
+      ],
+      link: "https://bsi.co.id"
     }
   ];
 
@@ -68,7 +73,8 @@ export default function Portfolio() {
       content: [
         "Manyar Auto Service belum memiliki kehadiran digital sama sekali. Sebagai satu-satunya developer dan infrastructure engineer, kami membangun dan mengelola segalanya dari nol — arsitektur kode, deployment server berbasis Docker, manajemen domain, SSL, dan analytics. Tanpa agensi, tanpa template, tanpa jalan pintas.",
         "Pekerjaan SEO crawling dan indexing secara konsisten menghasilkan visibilitas tinggi di hasil pencarian lokal. Dengan kendali penuh atas domain, konfigurasi server, dan analytics engine, bengkel kini memiliki infrastruktur digital mandiri yang mampu meranking dan mengonversi tanpa biaya pihak ketiga yang berkelanjutan."
-      ]
+      ],
+      link: "https://manyarmotor.com"
     },
     {
       id: "sagahealth",
@@ -78,7 +84,8 @@ export default function Portfolio() {
       content: [
         "Sekolah membutuhkan situs web yang dapat dinavigasi dengan mudah oleh orang tua di perangkat apa pun, termasuk ponsel kelas bawah. Kami membangun portal yang bersih dan mudah diakses dengan modul pelacakan kesehatan dan direktori yang dapat dicari — semuanya dirancang untuk memenuhi standar aksesibilitas AAA.",
         "Kecepatan kueri database meningkat 3x, dan portal mencapai peringkat aksesibilitas tertinggi yang dimungkinkan. Orang tua dan guru sekarang dapat mengakses direktori pendidikan secara instan, bahkan pada koneksi seluler yang lambat di daerah pedesaan."
-      ]
+      ],
+      link: "https://github.com/septiawanhadi"
     },
     {
       id: "sawargi",
@@ -88,7 +95,8 @@ export default function Portfolio() {
       content: [
         "Resepsionis hotel kewalahan — staf menghabiskan waktu berjam-jam untuk menjawab pertanyaan yang sama tentang ketersediaan kamar, harga, dan waktu check-in. Kami menerapkan chatbot bertenaga RAG khusus yang terhubung ke situs web dan saluran Telegram mereka.",
         "Bot sekarang menangani 98% pertanyaan rutin tanpa intervensi manusia. Waktu respons turun dari 15 menit menjadi 1,2 detik, dan biaya operasional layanan pelanggan berkurang sebesar 35%. Staf hotel kini dapat fokus pada pengalaman tamu secara langsung daripada pengiriman pesan berulang."
-      ]
+      ],
+      link: "https://github.com/didradev"
     },
     {
       id: "bsi",
@@ -98,7 +106,8 @@ export default function Portfolio() {
       content: [
         "PT Berlian Sistem Informasi membutuhkan website korporat yang mencerminkan posisi enterprise mereka — namun situs yang ada underperform dalam hal kecepatan, keamanan, dan SEO. Kami membangun ulang seluruh platform menggunakan Next.js dan Docker, dengan custom middleware yang menangani setiap lapisan keamanan.",
         "Revamp ini meraih skor sempurna 100/100 di Google Lighthouse untuk kategori SEO dan Best Practices. Kerentanan kritis hasil audit VAPT (XSS, XSRF, HSTS) sepenuhnya diremediasi menggunakan Content Security Policy (CSP) nonces. Infrastruktur baru bersifat containerized, teroptimasi untuk crawler, dan telah dikeraskan untuk produksi."
-      ]
+      ],
+      link: "https://bsi.co.id"
     }
   ];
 
