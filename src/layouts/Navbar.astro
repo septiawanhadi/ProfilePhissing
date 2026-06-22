@@ -1,5 +1,8 @@
 ---
 // Navbar.astro — Modular navigation bar with language selector toggle and collapsible mobile drawer
+const pathname = Astro.url.pathname;
+const isHome = pathname === '/' || pathname === '';
+const homePrefix = isHome ? '' : '/';
 ---
 
 <!-- Sticky Nav Bar -->
@@ -23,27 +26,27 @@
 
         <!-- Desktop Links: Hidden on Mobile, Centered on Desktop -->
         <div class="hidden md:flex flex-wrap gap-x-8 gap-y-2 justify-center">
-          <a href="#home" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-home">
+          <a href={`${homePrefix}#home`} class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-home">
             <span class="lang-en">Home</span>
             <span class="lang-id">Beranda</span>
           </a>
-          <a href="#services" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-services">
+          <a href={`${homePrefix}#services`} class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-services">
             <span class="lang-en">Services</span>
             <span class="lang-id">Layanan</span>
           </a>
-          <a href="#why-choose-us" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-why-choose-us">
+          <a href={`${homePrefix}#why-choose-us`} class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-why-choose-us">
             <span class="lang-en">Why Us</span>
             <span class="lang-id">Mengapa Kami</span>
           </a>
-          <a href="#work" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-work">
+          <a href={`${homePrefix}#work`} class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-work">
             <span class="lang-en">Work</span>
             <span class="lang-id">Portofolio</span>
           </a>
-          <a href="#faq" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-faq">
+          <a href={`${homePrefix}#faq`} class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-faq">
             <span class="lang-en">FAQ</span>
             <span class="lang-id">Tanya Jawab</span>
           </a>
-          <a href="#contact" class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-contact">
+          <a href={`${homePrefix}#contact`} class="hover:text-[#CC0000] underline-offset-4 hover:underline decoration-2 decoration-[#CC0000] transition-colors" id="nav-contact">
             <span class="lang-en">Contact</span>
             <span class="lang-id">Kontak</span>
           </a>
@@ -66,32 +69,32 @@
 
       <!-- Collapsible Mobile Drawer Menu (Visible on mobile only, expand down) -->
       <div id="mobile-menu-drawer" class="hidden md:hidden absolute top-full left-0 right-0 w-full bg-[#F9F9F7] border-b-4 border-[#111111] pt-3 flex-col gap-1 text-left font-bold z-50 shadow-lg px-2">
-        <a href="#home" class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-home">
+        <a href={`${homePrefix}#home`} class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-home">
           <span class="lang-en">Home</span>
           <span class="lang-id">Beranda</span>
           <span class="text-neutral-400 font-mono text-[10px]">I</span>
         </a>
-        <a href="#services" class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-services">
+        <a href={`${homePrefix}#services`} class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-services">
           <span class="lang-en">Services</span>
           <span class="lang-id">Layanan</span>
           <span class="text-neutral-400 font-mono text-[10px]">II</span>
         </a>
-        <a href="#why-choose-us" class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-why-choose-us">
+        <a href={`${homePrefix}#why-choose-us`} class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-why-choose-us">
           <span class="lang-en">Why Us</span>
           <span class="lang-id">Mengapa Kami</span>
           <span class="text-neutral-400 font-mono text-[10px]">III</span>
         </a>
-        <a href="#work" class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-work">
+        <a href={`${homePrefix}#work`} class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-work">
           <span class="lang-en">Work</span>
           <span class="lang-id">Portofolio</span>
           <span class="text-neutral-400 font-mono text-[10px]">IV</span>
         </a>
-        <a href="#faq" class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-faq">
+        <a href={`${homePrefix}#faq`} class="mobile-nav-link py-2.5 border-b border-[#111111]/10 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-faq">
           <span class="lang-en">FAQ</span>
           <span class="lang-id">Tanya Jawab</span>
           <span class="text-neutral-400 font-mono text-[10px]">V</span>
         </a>
-        <a href="#contact" class="mobile-nav-link py-2.5 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-contact">
+        <a href={`${homePrefix}#contact`} class="mobile-nav-link py-2.5 hover:text-[#CC0000] flex justify-between items-center px-2" id="mob-nav-contact">
           <span class="lang-en">Contact</span>
           <span class="lang-id">Kontak</span>
           <span class="text-neutral-400 font-mono text-[10px]">VI</span>
