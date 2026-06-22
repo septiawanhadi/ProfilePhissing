@@ -19,12 +19,12 @@ export default function Portfolio() {
   const casesEn: CaseStudy[] = [
     {
       id: "manyarmotor",
-      title: "HOW WE HELPED AN AUTO REPAIR SHOP INCREASE BOOKINGS BY 40%",
+      title: "FULL INFRASTRUCTURE BUILD FOR AN AUTO SERVICE SHOP — ZERO TO RANKED",
       industry: "AUTOMOTIVE · SURABAYA",
-      subtitle: "A complete website rebuild that turned a slow, outdated site into a lead-generating machine.",
+      subtitle: "Solo-engineered the entire digital infrastructure for Manyar Auto Service — from server setup to top local search rankings.",
       content: [
-        "The client's existing website was built on a bloated template — it loaded in over 6 seconds on mobile and was invisible on Google. Customers were calling competitors instead. We rebuilt the entire platform from scratch using a modern static-site architecture with SEO baked into every page.",
-        "Within 60 days of launch, organic search traffic increased by 240%. Mobile bookings jumped 40% as page load times dropped below 0.6 seconds. The site now scores a perfect 100/100 on Google Lighthouse — outperforming every competitor in the area."
+        "Manyar Auto Service had no web presence. As the sole developer and infrastructure engineer, we built and managed everything from scratch — architecture, codebase, Docker-based server deployment, domain management, SSL, and analytics. No agencies, no templates, no shortcuts.",
+        "Continuous SEO crawling and indexing work delivered consistent high visibility in local search results. With full control over domain, server config, and analytics engine, the shop now operates a self-sufficient digital infrastructure that ranks and converts without ongoing third-party costs."
       ]
     },
     {
@@ -48,13 +48,13 @@ export default function Portfolio() {
       ]
     },
     {
-      id: "checklist",
-      title: "A CUSTOM DESKTOP TOOL THAT REDUCED TRADING ERRORS BY 75%",
-      industry: "FINTECH · DESKTOP APP",
-      subtitle: "A floating checklist overlay that keeps traders disciplined and accountable.",
+      id: "bsi",
+      title: "CORPORATE WEBSITE REVAMP WITH PERFECT LIGHTHOUSE SCORES & VAPT SECURITY",
+      industry: "ENTERPRISE · IT CONSULTING · AUTOMOTIVE",
+      subtitle: "Full-stack revamp of bsi.co.id — achieving 100/100 Lighthouse and remediating critical VAPT vulnerabilities.",
       content: [
-        "The client — an independent trader — was losing money on impulsive decisions. They needed a tool that would force them to follow their own rules before entering any trade. We built a lightweight desktop widget that floats transparently over their trading platform.",
-        "The checklist overlay runs with near-zero CPU usage and prompts the user through a strict verification flow before every trade. Impulsive error rates dropped by 75%, and the client reported significantly improved profitability within the first month of use."
+        "PT Berlian Sistem Informasi needed their corporate website to reflect their enterprise positioning — but the existing site was underperforming on speed, security, and SEO. We rebuilt the entire platform using Next.js and Docker, with custom middleware handling every security layer.",
+        "The revamp achieved a perfect 100/100 on Google Lighthouse for SEO and Best Practices. Critical VAPT-identified vulnerabilities (XSS, XSRF, HSTS) were fully remediated using Content Security Policy (CSP) nonces. The new infrastructure is containerized, crawler-optimized, and production-hardened."
       ]
     }
   ];
@@ -62,12 +62,12 @@ export default function Portfolio() {
   const casesId: CaseStudy[] = [
     {
       id: "manyarmotor",
-      title: "BAGAIMANA KAMI MEMBANTU BENGKEL OTOMOTIF MENINGKATKAN PEMESANAN SEBESAR 40%",
+      title: "MEMBANGUN INFRASTRUKTUR DIGITAL PENUH UNTUK BENGKEL OTOMOTIF — DARI NOL HINGGA TERINDEKS",
       industry: "OTOMOTIF · SURABAYA",
-      subtitle: "Pembangunan ulang situs web sepenuhnya yang mengubah situs lambat menjadi mesin penghasil prospek.",
+      subtitle: "Dibangun sendiri dari awal — arsitektur, server, domain, hingga visibilitas pencarian lokal untuk Manyar Auto Service.",
       content: [
-        "Situs web klien yang lama dibangun di atas template yang lambat — memuat lebih dari 6 detik di seluler dan tidak terlihat di Google. Pelanggan beralih menghubungi pesaing. Kami membangun kembali seluruh platform dari awal menggunakan arsitektur situs statis modern dengan SEO di setiap halaman.",
-        "Dalam 60 hari setelah peluncuran, lalu lintas pencarian organik meningkat sebesar 240%. Pemesanan seluler melonjak 40% karena waktu muat halaman turun di bawah 0,6 detik. Situs ini sekarang mendapat skor sempurna 100/100 di Google Lighthouse — mengungguli semua pesaing di area tersebut."
+        "Manyar Auto Service belum memiliki kehadiran digital sama sekali. Sebagai satu-satunya developer dan infrastructure engineer, kami membangun dan mengelola segalanya dari nol — arsitektur kode, deployment server berbasis Docker, manajemen domain, SSL, dan analytics. Tanpa agensi, tanpa template, tanpa jalan pintas.",
+        "Pekerjaan SEO crawling dan indexing secara konsisten menghasilkan visibilitas tinggi di hasil pencarian lokal. Dengan kendali penuh atas domain, konfigurasi server, dan analytics engine, bengkel kini memiliki infrastruktur digital mandiri yang mampu meranking dan mengonversi tanpa biaya pihak ketiga yang berkelanjutan."
       ]
     },
     {
@@ -91,13 +91,13 @@ export default function Portfolio() {
       ]
     },
     {
-      id: "checklist",
-      title: "ALAT DESKTOP KUSTOM YANG MENGURANGI KESALAHAN TRADING SEBESAR 75%",
-      industry: "FINTECH · APLIKASI DESKTOP",
-      subtitle: "Overlay daftar periksa melayang yang menjaga disiplin dan akuntabilitas para trader.",
+      id: "bsi",
+      title: "REVAMP WEBSITE KORPORAT DENGAN SKOR LIGHTHOUSE SEMPURNA & KEAMANAN VAPT",
+      industry: "ENTERPRISE · IT CONSULTING · OTOMOTIF",
+      subtitle: "Revamp full-stack bsi.co.id — meraih skor 100/100 Lighthouse dan meremediasi kerentanan VAPT kritis.",
       content: [
-        "Klien — seorang trader independen — kehilangan uang karena keputusan impulsif. Mereka membutuhkan alat yang memaksa mereka untuk mengikuti aturan mereka sendiri sebelum masuk ke perdagangan apa pun. Kami membangun widget desktop ringan yang melayang secara transparan di atas platform perdagangan mereka.",
-        "Overlay daftar periksa berjalan dengan penggunaan CPU mendekati nol dan meminta pengguna melalui alur verifikasi ketat sebelum setiap transaksi. Tingkat kesalahan impulsif turun sebesar 75%, dan klien melaporkan peningkatan profitabilitas yang signifikan dalam bulan pertama penggunaan."
+        "PT Berlian Sistem Informasi membutuhkan website korporat yang mencerminkan posisi enterprise mereka — namun situs yang ada underperform dalam hal kecepatan, keamanan, dan SEO. Kami membangun ulang seluruh platform menggunakan Next.js dan Docker, dengan custom middleware yang menangani setiap lapisan keamanan.",
+        "Revamp ini meraih skor sempurna 100/100 di Google Lighthouse untuk kategori SEO dan Best Practices. Kerentanan kritis hasil audit VAPT (XSS, XSRF, HSTS) sepenuhnya diremediasi menggunakan Content Security Policy (CSP) nonces. Infrastruktur baru bersifat containerized, teroptimasi untuk crawler, dan telah dikeraskan untuk produksi."
       ]
     }
   ];

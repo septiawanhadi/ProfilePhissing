@@ -92,25 +92,25 @@ export default function ProjectModal({ isOpen, project, lang, onClose }: Project
               "{displayProject.subtitle}"
             </p>
 
-            {/* Project Image Area Placeholder */}
+            {/* Project Image */}
             <div className="border-2 border-[#111111] p-2 bg-[#F9F9F7] mb-6 shadow-[4px_4px_0px_0px_rgba(17,17,17,1)]">
               <div className="h-48 md:h-64 bg-neutral-100 relative flex items-center justify-center overflow-hidden border border-dashed border-[#111111]">
-                {/* Uncomment and replace the src below with your actual project image path */}
-                {/* 
-                <img 
-                  src={`/images/projects/${displayProject.id}.png`} 
-                  alt={displayProject.title} 
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                */}
-                <div className="text-center font-mono p-4">
-                  <div className="text-xs uppercase tracking-widest text-[#CC0000] font-bold mb-2">
-                    [ {lang === 'en' ? 'PROJECT IMAGE PLACEHOLDER' : 'PLACEHOLDER GAMBAR PROYEK'} ]
+                {['manyarmotor', 'bsi'].includes(displayProject.id) ? (
+                  <img 
+                    src={`/assets/didra/${displayProject.id}.jpg`}
+                    alt={displayProject.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="text-center font-mono p-4">
+                    <div className="text-xs uppercase tracking-widest text-[#CC0000] font-bold mb-2">
+                      [ {lang === 'en' ? 'PROJECT IMAGE PLACEHOLDER' : 'PLACEHOLDER GAMBAR PROYEK'} ]
+                    </div>
+                    <div className="text-[10px] text-neutral-500 lowercase tracking-tight">
+                      {displayProject.id}
+                    </div>
                   </div>
-                  <div className="text-[10px] text-neutral-500 lowercase tracking-tight">
-                    {lang === 'en' ? 'Uncomment img tag in ProjectModal.tsx to add custom image' : 'Hapus komentar tag img di ProjectModal.tsx untuk menambah gambar'}
-                  </div>
-                </div>
+                )}
               </div>
             </div>
 
