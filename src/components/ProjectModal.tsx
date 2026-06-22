@@ -7,6 +7,7 @@ interface CaseStudy {
   subtitle: string;
   content: string[];
   link?: string;
+  image?: string;
 }
 
 interface ProjectModalProps {
@@ -96,9 +97,9 @@ export default function ProjectModal({ isOpen, project, lang, onClose }: Project
             {/* Project Image */}
             <div className="border-2 border-[#111111] p-2 bg-[#F9F9F7] mb-6 shadow-[4px_4px_0px_0px_rgba(17,17,17,1)]">
               <div className="h-48 md:h-64 bg-neutral-100 relative flex items-center justify-center overflow-hidden border border-dashed border-[#111111]">
-                {['manyarmotor', 'bsi'].includes(displayProject.id) ? (
+                {displayProject.image ? (
                   <img 
-                    src={`/assets/didra/${displayProject.id}.jpg`}
+                    src={displayProject.image}
                     alt={displayProject.title}
                     className="absolute inset-0 w-full h-full object-cover"
                   />

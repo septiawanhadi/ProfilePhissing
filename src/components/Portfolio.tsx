@@ -2,6 +2,11 @@ import React, { useState, useRef } from 'react';
 import { useLanguage } from '../hooks/useLanguage';
 import ProjectModal from './ProjectModal';
 
+// Import local image assets for septi projects
+import safetanaImg from '../assets/septi/safetana.png';
+import sidiktiImg from '../assets/septi/sidik-ti.png';
+import slbraudhatulzannahImg from '../assets/septi/slbraudhatulzannah.png';
+
 interface CaseStudy {
   id: string;
   title: string;
@@ -9,6 +14,7 @@ interface CaseStudy {
   subtitle: string;
   content: string[];
   link?: string;
+  image?: string;
 }
 
 export default function Portfolio() {
@@ -27,29 +33,32 @@ export default function Portfolio() {
         "Manyar Auto Service had no web presence. As the sole developer and infrastructure engineer, we built and managed everything from scratch — architecture, codebase, Docker-based server deployment, domain management, SSL, and analytics. No agencies, no templates, no shortcuts.",
         "Continuous SEO crawling and indexing work delivered consistent high visibility in local search results. With full control over domain, server config, and analytics engine, the shop now operates a self-sufficient digital infrastructure that ranks and converts without ongoing third-party costs."
       ],
-      link: "https://manyarmotor.com"
+      link: "https://manyarmotor.com",
+      image: "/assets/didra/manyarmotor.jpg"
     },
     {
-      id: "sagahealth",
-      title: "BUILDING AN ACCESSIBLE PLATFORM FOR A SPECIAL EDUCATION SCHOOL",
-      industry: "EDUCATION · HEALTHCARE",
-      subtitle: "An inclusive web portal designed for parents, teachers, and administrators at a special needs school.",
+      id: "slbraudhatulzannah",
+      title: "SLB RAUDHATUL ZANNAH SPECIAL SCHOOL PROFILE PORTAL",
+      industry: "EDUCATION · ACCESSIBILITY",
+      subtitle: "The official web profile for SLB Raudhatul Zannah school, designed to present their programs and facilities.",
       content: [
-        "The school needed a website that parents could navigate easily on any device, including low-end phones. We built a clean, accessible portal with a health tracking module and a searchable directory — all designed to meet AAA accessibility standards.",
-        "Database query speeds improved by 3x, and the portal achieved the highest accessibility rating possible. Parents and teachers can now access educational directories instantly, even on slow mobile connections in rural areas."
+        "We designed and built the official school profile website for SLB Raudhatul Zannah. The site serves as a complete information center for parents, students, and the community to learn about the special needs education curriculum, programs, facilities, and upcoming school activities.",
+        "The profile portal is optimized for absolute ease of use, ensuring that parents can access important school announcements, academic schedules, and contact details from any device quickly and reliably."
       ],
-      link: "https://github.com/septiawanhadi"
+      link: "https://slbraudhatulzannah.biz.id/",
+      image: slbraudhatulzannahImg.src
     },
     {
-      id: "sawargi",
-      title: "CUTTING HOTEL CUSTOMER SERVICE COSTS BY 35% WITH AI",
-      industry: "HOSPITALITY · AI INTEGRATION",
-      subtitle: "A custom AI chatbot that handles bookings and guest inquiries around the clock.",
+      id: "safetana",
+      title: "SAFETANA — AI-BASED DISASTER MITIGATION & HEALTH CARE PLATFORM",
+      industry: "HEALTHCARE · DISASTER MITIGATION · AI",
+      subtitle: "An AI-powered web application providing disaster mitigation guidance and real-time health services.",
       content: [
-        "The hotel's front desk was overwhelmed — staff were spending hours answering the same questions about room availability, pricing, and check-in times. We deployed a custom RAG-powered chatbot that connects to both their website and Telegram channel.",
-        "The bot now handles 98% of routine inquiries without human intervention. Response times dropped from 15 minutes to 1.2 seconds, and customer service overhead costs decreased by 35%. The hotel staff can now focus on in-person guest experience instead of repetitive messaging."
+        "Safetana is an innovative, web-based platform that combines AI logic with disaster mitigation and healthcare services. The application analyzes environmental hazards and provides users with real-time health recommendations and safety steps in the event of emergencies or natural disasters.",
+        "By integrating AI risk assessment models with emergency medical routing, Safetana helps users prepare for critical events and access nearest healthcare options instantly, enhancing community resilience."
       ],
-      link: "https://github.com/didradev"
+      link: "https://safetana.vercel.app/",
+      image: safetanaImg.src
     },
     {
       id: "bsi",
@@ -60,7 +69,20 @@ export default function Portfolio() {
         "PT Berlian Sistem Informasi needed their corporate website to reflect their enterprise positioning — but the existing site was underperforming on speed, security, and SEO. We rebuilt the entire platform using Next.js and Docker, with custom middleware handling every security layer.",
         "The revamp achieved a perfect 100/100 on Google Lighthouse for SEO and Best Practices. Critical VAPT-identified vulnerabilities (XSS, XSRF, HSTS) were fully remediated using Content Security Policy (CSP) nonces. The new infrastructure is containerized, crawler-optimized, and production-hardened."
       ],
-      link: "https://bsi.co.id"
+      link: "https://bsi.co.id",
+      image: "/assets/didra/bsi.jpg"
+    },
+    {
+      id: "sidikti",
+      title: "SIDIK-TI — INTEGRATED IT DEVICE MANAGEMENT & MAINTENANCE SERVICE",
+      industry: "IT SERVICES · INFRASTRUCTURE",
+      subtitle: "An integrated platform to manage, monitor, and maintain corporate IT assets and hardware devices.",
+      content: [
+        "Sidik-TI is an all-in-one web service designed to manage and maintain IT equipment and devices within organizations. It provides a central workspace to schedule preventive maintenance, track hardware health status, register assets, and handle tech support requests.",
+        "By implementing structured device lifecycles and automated alerts for maintenance periods, Sidik-TI reduces equipment downtime, ensures software compliance, and helps IT support teams run their operations efficiently."
+      ],
+      link: "https://sidik-ti.biz.id/",
+      image: sidiktiImg.src
     }
   ];
 
@@ -74,29 +96,32 @@ export default function Portfolio() {
         "Manyar Auto Service belum memiliki kehadiran digital sama sekali. Sebagai satu-satunya developer dan infrastructure engineer, kami membangun dan mengelola segalanya dari nol — arsitektur kode, deployment server berbasis Docker, manajemen domain, SSL, dan analytics. Tanpa agensi, tanpa template, tanpa jalan pintas.",
         "Pekerjaan SEO crawling dan indexing secara konsisten menghasilkan visibilitas tinggi di hasil pencarian lokal. Dengan kendali penuh atas domain, konfigurasi server, dan analytics engine, bengkel kini memiliki infrastruktur digital mandiri yang mampu meranking dan mengonversi tanpa biaya pihak ketiga yang berkelanjutan."
       ],
-      link: "https://manyarmotor.com"
+      link: "https://manyarmotor.com",
+      image: "/assets/didra/manyarmotor.jpg"
     },
     {
-      id: "sagahealth",
-      title: "MEMBANGUN PLATFORM AKSESIBEL UNTUK SEKOLAH KEBUTUHAN KHUSUS",
-      industry: "PENDIDIKAN · KESEHATAN",
-      subtitle: "Portal web inklusif yang dirancang untuk orang tua, guru, dan administrator di sekolah kebutuhan khusus.",
+      id: "slbraudhatulzannah",
+      title: "PORTAL PROFIL SEKOLAH LUAR BIASA SLB RAUDHATUL ZANNAH",
+      industry: "PENDIDIKAN · AKSESIBILITAS",
+      subtitle: "Situs profil sekolah resmi untuk SLB Raudhatul Zannah, dirancang untuk menyajikan program dan fasilitas.",
       content: [
-        "Sekolah membutuhkan situs web yang dapat dinavigasi dengan mudah oleh orang tua di perangkat apa pun, termasuk ponsel kelas bawah. Kami membangun portal yang bersih dan mudah diakses dengan modul pelacakan kesehatan dan direktori yang dapat dicari — semuanya dirancang untuk memenuhi standar aksesibilitas AAA.",
-        "Kecepatan kueri database meningkat 3x, dan portal mencapai peringkat aksesibilitas tertinggi yang dimungkinkan. Orang tua dan guru sekarang dapat mengakses direktori pendidikan secara instan, bahkan pada koneksi seluler yang lambat di daerah pedesaan."
+        "Kami merancang dan membangun situs web profil sekolah resmi untuk SLB Raudhatul Zannah. Situs ini berfungsi sebagai pusat informasi lengkap bagi orang tua, siswa, dan masyarakat untuk mengenal kurikulum pendidikan luar biasa, program sekolah, fasilitas pendukung, serta berbagai kegiatan sekolah.",
+        "Portal profil ini dioptimalkan agar sangat mudah digunakan, memastikan bahwa orang tua dapat mengakses pengumuman penting sekolah, jadwal akademik, dan detail kontak dari perangkat apa pun secara cepat dan andal."
       ],
-      link: "https://github.com/septiawanhadi"
+      link: "https://slbraudhatulzannah.biz.id/",
+      image: slbraudhatulzannahImg.src
     },
     {
-      id: "sawargi",
-      title: "MEMOTONG BIAYA LAYANAN PELANGGAN HOTEL SEBESAR 35% DENGAN AI",
-      industry: "PERHOTELAN · INTEGRASI AI",
-      subtitle: "Chatbot AI khusus yang menangani pemesanan dan pertanyaan tamu sepanjang waktu.",
+      id: "safetana",
+      title: "SAFETANA — PLATFORM MITIGASI BENCANA & LAYANAN KESEHATAN BERBASIS AI",
+      industry: "KESEHATAN · MITIGASI BENCANA · AI",
+      subtitle: "Aplikasi berbasis web dengan dukungan AI untuk menyediakan panduan mitigasi bencana dan layanan kesehatan real-time.",
       content: [
-        "Resepsionis hotel kewalahan — staf menghabiskan waktu berjam-jam untuk menjawab pertanyaan yang sama tentang ketersediaan kamar, harga, dan waktu check-in. Kami menerapkan chatbot bertenaga RAG khusus yang terhubung ke situs web dan saluran Telegram mereka.",
-        "Bot sekarang menangani 98% pertanyaan rutin tanpa intervensi manusia. Waktu respons turun dari 15 menit menjadi 1,2 detik, dan biaya operasional layanan pelanggan berkurang sebesar 35%. Staf hotel kini dapat fokus pada pengalaman tamu secara langsung daripada pengiriman pesan berulang."
+        "Safetana adalah platform inovatif berbasis web yang menggabungkan logika AI dengan layanan mitigasi bencana dan kesehatan. Aplikasi ini menganalisis bahaya lingkungan serta memberikan rekomendasi kesehatan real-time dan langkah-langkah keselamatan kepada pengguna saat terjadi keadaan darurat atau bencana alam.",
+        "Dengan mengintegrasikan model penilaian risiko AI dengan rute medis darurat, Safetana membantu masyarakat bersiap menghadapi situasi kritis dan mengakses opsi layanan kesehatan terdekat secara instan."
       ],
-      link: "https://github.com/didradev"
+      link: "https://safetana.vercel.app/",
+      image: safetanaImg.src
     },
     {
       id: "bsi",
@@ -107,7 +132,20 @@ export default function Portfolio() {
         "PT Berlian Sistem Informasi membutuhkan website korporat yang mencerminkan posisi enterprise mereka — namun situs yang ada underperform dalam hal kecepatan, keamanan, dan SEO. Kami membangun ulang seluruh platform menggunakan Next.js dan Docker, dengan custom middleware yang menangani setiap lapisan keamanan.",
         "Revamp ini meraih skor sempurna 100/100 di Google Lighthouse untuk kategori SEO dan Best Practices. Kerentanan kritis hasil audit VAPT (XSS, XSRF, HSTS) sepenuhnya diremediasi menggunakan Content Security Policy (CSP) nonces. Infrastruktur baru bersifat containerized, teroptimasi untuk crawler, dan telah dikeraskan untuk produksi."
       ],
-      link: "https://bsi.co.id"
+      link: "https://bsi.co.id",
+      image: "/assets/didra/bsi.jpg"
+    },
+    {
+      id: "sidikti",
+      title: "SIDIK-TI — LAYANAN TERPADU PENGELOLAAN & PEMELIHARAAN PERANGKAT TI",
+      industry: "LAYANAN TI · INFRASTRUKTUR",
+      subtitle: "Platform terpadu untuk mengelola, memantau, dan memelihara aset TI serta perangkat keras perusahaan.",
+      content: [
+        "Sidik-TI adalah layanan web all-in-one yang dirancang untuk mengelola dan memelihara peralatan serta perangkat TI di dalam organisasi. Layanan ini menyediakan ruang kerja terpusat untuk menjadwalkan pemeliharaan preventif, melacak status kesehatan perangkat keras, mencatat aset, dan menangani permintaan dukungan teknis.",
+        "Dengan menerapkan siklus hidup perangkat yang terstruktur dan peringatan otomatis untuk periode pemeliharaan, Sidik-TI mengurangi waktu henti (downtime) peralatan, memastikan kepatuhan perangkat lunak, dan membantu tim dukungan TI menjalankan operasi mereka secara efisien."
+      ],
+      link: "https://sidik-ti.biz.id/",
+      image: sidiktiImg.src
     }
   ];
 
