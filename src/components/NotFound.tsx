@@ -33,7 +33,7 @@ export default function NotFound() {
 
         {/* Newspaper Sub-header */}
         <div className="border-b-4 border-[var(--color-fg)] pb-2 mb-8 mt-2 flex justify-between items-center text-xs font-mono uppercase tracking-widest text-neutral-500 font-bold">
-          <div>GEMILANG ARCHIVE</div>
+          <div>DRIPCODE ARCHIVE</div>
           <div className="hidden sm:block">
             {lang === 'en' ? 'ERROR CATALOG // NO. 404' : 'KATALOG ERROR // NO. 404'}
           </div>
