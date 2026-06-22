@@ -6,6 +6,7 @@ interface CaseStudy {
   industry: string;
   subtitle: string;
   content: string[];
+  link?: string;
 }
 
 interface ProjectModalProps {
@@ -124,7 +125,17 @@ export default function ProjectModal({ isOpen, project, lang, onClose }: Project
         </div>
 
         {/* Modal Footer */}
-        <div className="mt-8 pt-4 border-t border-dashed border-neutral-300 flex justify-end">
+        <div className="mt-8 pt-4 border-t border-dashed border-neutral-300 flex justify-end gap-3">
+          {displayProject.link && displayProject.link !== '#' && (
+            <a 
+              href={displayProject.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-[#111111] bg-[#CC0000] text-white px-4 py-2 font-mono text-xs uppercase tracking-widest font-bold hover:bg-[#111111] hover:text-[#F9F9F7] transition-all duration-150 cursor-pointer inline-flex items-center gap-1.5"
+            >
+              {lang === 'en' ? 'Visit Website ↗' : 'Kunjungi Situs ↗'}
+            </a>
+          )}
           <button 
             onClick={onClose}
             className="border border-[#111111] bg-white px-4 py-2 font-mono text-xs uppercase tracking-widest font-bold hover:bg-[#111111] hover:text-[#F9F9F7] transition-all duration-150 cursor-pointer"
