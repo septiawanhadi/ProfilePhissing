@@ -59,13 +59,13 @@ export default function Faq() {
   const items = lang === 'en' ? itemsEn : itemsId;
 
   return (
-    <section id="faq" className="max-w-screen-xl mx-auto px-4 py-16 border-b-2 border-[#111111] bg-[#F9F9F7]">
+    <section id="faq" className="max-w-screen-xl mx-auto px-4 py-16 border-b-2 border-[var(--color-fg)] bg-[var(--color-bg)]">
       {/* Section Header */}
-      <div className="mb-12 border-b-2 border-[#111111] pb-4">
+      <div className="mb-12 border-b-2 border-[var(--color-fg)] pb-4">
         <div className="font-mono text-xs uppercase tracking-widest text-neutral-600 font-bold mb-2">
           {lang === 'en' ? 'FAQ // Common Questions From Our Clients' : 'FAQ // Pertanyaan Umum Dari Klien Kami'}
         </div>
-        <h2 className="font-serif text-4xl md:text-5xl font-black uppercase text-[#111111] tracking-tight">
+        <h2 className="font-serif text-4xl md:text-5xl font-black uppercase text-[var(--color-fg)] tracking-tight">
           {lang === 'en' ? 'FREQUENTLY ASKED QUESTIONS' : 'PERTANYAAN YANG SERING DIAJUKAN'}
         </h2>
       </div>
@@ -78,17 +78,17 @@ export default function Faq() {
           return (
             <div 
               key={idx} 
-              className="border border-[#111111] bg-white"
+              className="border border-[var(--color-fg)] bg-[var(--color-bg-card)]"
             >
               {/* Accordion Trigger */}
               <button
                 onClick={() => setOpenIdx(isOpen ? null : idx)}
-                className="w-full text-left p-5 flex justify-between items-center bg-transparent border-none font-serif text-base md:text-lg font-bold uppercase tracking-tight text-[#111111] cursor-pointer hover:bg-neutral-100 transition-colors"
+                className="w-full text-left p-5 flex justify-between items-center bg-transparent border-none font-serif text-base md:text-lg font-bold uppercase tracking-tight text-[var(--color-fg)] cursor-pointer hover:bg-[var(--color-neutral-100)] transition-colors"
                 aria-expanded={isOpen}
               >
                 <span className="pr-4">{item.question}</span>
-                <span className="shrink-0 flex items-center justify-center border border-[#111111] h-8 w-8 text-sm font-mono font-bold bg-[#F9F9F7] select-none">
-                  <span className={`transform transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#CC0000]' : 'rotate-0'}`}>
+                <span className="shrink-0 flex items-center justify-center border border-[var(--color-fg)] h-8 w-8 text-sm font-mono font-bold bg-[var(--color-bg)] select-none">
+                  <span className={`transform transition-transform duration-200 ${isOpen ? 'rotate-180 text-[var(--color-accent)]' : 'rotate-0'}`}>
                     {isOpen ? '−' : '＋'}
                   </span>
                 </span>
@@ -97,12 +97,12 @@ export default function Faq() {
               {/* Accordion Content */}
               <div 
                 className={`grid transition-all duration-300 ease-in-out overflow-hidden ${
-                  isOpen ? 'grid-rows-[1fr] opacity-100 border-t border-[#111111]' : 'grid-rows-[0fr] opacity-0'
+                  isOpen ? 'grid-rows-[1fr] opacity-100 border-t border-[var(--color-fg)]' : 'grid-rows-[0fr] opacity-0'
                 }`}
               >
                 <div className="overflow-hidden">
-                  <div className="p-6 bg-[#F9F9F7]/50 font-body text-xs md:text-sm text-neutral-600 leading-relaxed text-justify">
-                    <p className="border-l-4 border-[#CC0000] pl-4">
+                  <div className="p-6 bg-[var(--color-bg)]/50 font-body text-xs md:text-sm text-neutral-600 leading-relaxed text-justify">
+                    <p className="border-l-4 border-[var(--color-accent)] pl-4">
                       {item.response}
                     </p>
                   </div>

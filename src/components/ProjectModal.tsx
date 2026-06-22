@@ -62,7 +62,7 @@ export default function ProjectModal({ isOpen, project, lang, onClose }: Project
       onClick={onClose}
     >
       <div 
-        className={`relative w-full max-w-2xl bg-white border-4 border-[#111111] p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(17,17,17,1)] transition-all duration-300 transform ${
+        className={`relative w-full max-w-2xl bg-[var(--color-bg-card)] border-4 border-[var(--color-fg)] p-6 md:p-8 shadow-[8px_8px_0px_0px_var(--color-fg)] transition-all duration-300 transform ${
           isOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
         }`}
         onClick={(e) => e.stopPropagation()}
@@ -77,26 +77,26 @@ export default function ProjectModal({ isOpen, project, lang, onClose }: Project
         >
           <div style={{ direction: 'ltr' }}>
             {/* Industry/Location Tag */}
-            <div className="text-xs font-mono uppercase tracking-widest text-[#CC0000] font-bold mb-2">
+            <div className="text-xs font-mono uppercase tracking-widest text-[var(--color-accent)] font-bold mb-2">
               {displayProject.industry}
             </div>
 
             {/* Title */}
             <h3 
               id="modal-title" 
-              className="font-serif text-2xl md:text-3xl font-black uppercase text-[#111111] leading-tight mb-4 tracking-tight pr-8"
+              className="font-serif text-2xl md:text-3xl font-black uppercase text-[var(--color-fg)] leading-tight mb-4 tracking-tight pr-8"
             >
               {displayProject.title}
             </h3>
 
             {/* Subtitle */}
-            <p className="font-serif italic text-neutral-700 text-sm md:text-base mb-6 border-l-4 border-[#CC0000] pl-4">
+            <p className="font-serif italic text-neutral-700 text-sm md:text-base mb-6 border-l-4 border-[var(--color-accent)] pl-4">
               "{displayProject.subtitle}"
             </p>
 
             {/* Project Image */}
-            <div className="border-2 border-[#111111] p-2 bg-[#F9F9F7] mb-6 shadow-[4px_4px_0px_0px_rgba(17,17,17,1)]">
-              <div className="h-48 md:h-64 bg-neutral-100 relative flex items-center justify-center overflow-hidden border border-dashed border-[#111111]">
+            <div className="border-2 border-[var(--color-fg)] p-2 bg-[var(--color-bg)] mb-6 shadow-[4px_4px_0px_0px_var(--color-fg)]">
+              <div className="h-48 md:h-64 bg-neutral-100 relative flex items-center justify-center overflow-hidden border border-dashed border-[var(--color-fg)]">
                 {displayProject.image ? (
                   <img 
                     src={displayProject.image}
@@ -105,7 +105,7 @@ export default function ProjectModal({ isOpen, project, lang, onClose }: Project
                   />
                 ) : (
                   <div className="text-center font-mono p-4">
-                    <div className="text-xs uppercase tracking-widest text-[#CC0000] font-bold mb-2">
+                    <div className="text-xs uppercase tracking-widest text-[var(--color-accent)] font-bold mb-2">
                       [ {lang === 'en' ? 'PROJECT IMAGE PLACEHOLDER' : 'PLACEHOLDER GAMBAR PROYEK'} ]
                     </div>
                     <div className="text-[10px] text-neutral-500 lowercase tracking-tight">
@@ -132,14 +132,14 @@ export default function ProjectModal({ isOpen, project, lang, onClose }: Project
               href={displayProject.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-[#111111] bg-[#CC0000] text-white px-4 py-2 font-mono text-xs uppercase tracking-widest font-bold hover:bg-[#111111] hover:text-[#F9F9F7] transition-all duration-150 cursor-pointer inline-flex items-center gap-1.5"
+              className="border border-[var(--color-fg)] bg-[var(--color-accent)] text-white px-4 py-2 font-mono text-xs uppercase tracking-widest font-bold hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-hover-text)] transition-all duration-150 cursor-pointer inline-flex items-center gap-1.5"
             >
               {lang === 'en' ? 'Visit Website ↗' : 'Kunjungi Situs ↗'}
             </a>
           )}
           <button 
             onClick={onClose}
-            className="border border-[#111111] bg-white px-4 py-2 font-mono text-xs uppercase tracking-widest font-bold hover:bg-[#111111] hover:text-[#F9F9F7] transition-all duration-150 cursor-pointer"
+            className="border border-[var(--color-fg)] bg-[var(--color-bg-card)] px-4 py-2 font-mono text-xs uppercase tracking-widest font-bold hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-hover-text)] transition-all duration-150 cursor-pointer"
           >
             {lang === 'en' ? 'Close' : 'Tutup'}
           </button>

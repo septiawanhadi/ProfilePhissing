@@ -31,14 +31,14 @@ export default function Ticker() {
   const newsItems = lang === 'en' ? newsItemsEn : newsItemsId;
 
   return (
-    <div className="w-full bg-[#111111] text-[#F9F9F7] py-2 border-b border-[#111111] font-mono text-xs uppercase tracking-widest flex items-center select-none">
-      <div className="bg-[#CC0000] text-[#F9F9F7] px-3 py-1 font-bold shrink-0 border-r border-[#111111] z-10 text-[11px]">
+    <div className="w-full bg-[var(--color-fg)] text-[var(--color-bg)] py-2 border-b border-[var(--color-fg)] font-mono text-xs uppercase tracking-widest flex items-center select-none">
+      <div className="bg-[var(--color-accent)] text-[var(--color-bg)] px-3 py-1 font-bold shrink-0 border-r border-[var(--color-fg)] z-10 text-[11px]">
         {lang === 'en' ? 'UPDATE' : 'BARU'}
       </div>
       <MarqueeComponent speed={40} gradient={false} pauseOnHover={true}>
         {newsItems.map((item, idx) => (
           <span key={idx} className="mx-8 flex items-center">
-            <span className="bg-[#CC0000] text-[#F9F9F7] text-[10px] font-bold px-1.5 py-0.5 mr-2">
+            <span className="bg-[var(--color-accent)] text-[var(--color-bg)] text-[10px] font-bold px-1.5 py-0.5 mr-2">
               {lang === 'en' ? 'NEW' : 'INFO'}
             </span>
             {item}

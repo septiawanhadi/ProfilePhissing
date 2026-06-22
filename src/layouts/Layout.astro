@@ -13,8 +13,17 @@ const { title, description = "Gemilang - The Ultimate Full-Stack Web Engineering
 <html lang="en">
 	<head>
 		<script is:inline>
+			// Language init
 			const savedLang = localStorage.getItem('web-agency-lang') || 'en';
 			document.documentElement.classList.add(`lang-${savedLang}`);
+
+			// Theme init
+			const savedTheme = localStorage.getItem('web-agency-theme');
+			if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
 		</script>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -30,7 +39,7 @@ const { title, description = "Gemilang - The Ultimate Full-Stack Web Engineering
 		
 		<title>{title}</title>
 	</head>
-	<body class="newsprint-texture min-h-screen flex flex-col justify-between selection:bg-[#CC0000] selection:text-[#F9F9F7]">
+	<body class="newsprint-texture min-h-screen flex flex-col justify-between selection:bg-[var(--color-accent)] selection:text-[var(--color-bg)]">
 		<slot />
 
 		<script>

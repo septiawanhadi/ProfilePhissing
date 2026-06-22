@@ -1,17 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=block');
 
+:root {
+  --color-bg: #F9F9F7;
+  --color-bg-card: #FFFFFF;
+  --color-fg: #111111;
+  --color-fg-muted: #525252;
+  --color-fg-subtle: #737373;
+  --color-accent: #CC0000;
+  --color-hover-bg: #111111;
+  --color-hover-text: #F9F9F7;
+  --color-neutral-100: #F5F5F5;
+  --color-neutral-200: #E5E5E5;
+  --color-neutral-300: #D4D4D4;
+  --color-neutral-400: #A3A3A3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-border: #111111;
+  --color-border-subtle: rgba(17,17,17,0.1);
+  --color-muted: #E5E5E0;
+  --color-newsprint-grid: rgba(17,17,17,0.02);
+  --color-process-border: rgba(249, 249, 247, 0.15);
+}
+
+html.dark {
+  --color-bg: #141414;
+  --color-bg-card: #1E1E1E;
+  --color-fg: #E8E8E6;
+  --color-fg-muted: #A0A0A0;
+  --color-fg-subtle: #787878;
+  --color-accent: #FF3333;
+  --color-hover-bg: #E8E8E6;
+  --color-hover-text: #141414;
+  --color-neutral-100: #252525;
+  --color-neutral-200: #333333;
+  --color-neutral-300: #404040;
+  --color-neutral-400: #888888;
+  --color-neutral-500: #a0a0a0;
+  --color-neutral-600: #b8b8b8;
+  --color-neutral-700: #d4d4d4;
+  --color-neutral-800: #e5e5e5;
+  --color-neutral-900: #f5f5f5;
+  --color-border: #E8E8E6;
+  --color-border-subtle: rgba(232,232,230,0.1);
+  --color-muted: #2d2d2a;
+  --color-newsprint-grid: rgba(232,232,230,0.02);
+  --color-process-border: rgba(20, 20, 20, 0.15);
+}
+
+html.dark body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23E8E8E6' fill-opacity='0.04' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E") !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    background-color: #F9F9F7;
-    color: #111111;
+    background-color: var(--color-bg);
+    color: var(--color-fg);
     font-family: 'Lora', Georgia, serif;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23111111' fill-opacity='0.04' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
     line-height: 1.625;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   }
 
   /* Force sharp geometric corners everywhere */
@@ -21,7 +76,8 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', 'Times New Roman', serif;
-    color: #111111;
+    color: var(--color-fg);
+    transition: color 0.3s;
   }
 }
 
@@ -35,8 +91,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(0deg, transparent 98%, rgba(17,17,17,0.02) 100%),
-      linear-gradient(90deg, transparent 98%, rgba(17,17,17,0.02) 100%);
+      linear-gradient(0deg, transparent 98%, var(--color-newsprint-grid) 100%),
+      linear-gradient(90deg, transparent 98%, var(--color-newsprint-grid) 100%);
     background-size: 3px 3px;
     pointer-events: none;
     opacity: 0.5;
@@ -47,7 +103,7 @@
     transition: all 0.2s ease-out;
   }
   .hard-shadow-hover:hover {
-    box-shadow: 4px 4px 0px 0px #111111;
+    box-shadow: 4px 4px 0px 0px var(--color-fg);
     transform: translate(-2px, -2px);
   }
 
@@ -68,7 +124,7 @@
     padding-top: 6px;
     padding-right: 12px;
     font-weight: 900;
-    color: #CC0000;
+    color: var(--color-accent);
   }
 }
 
@@ -96,14 +152,31 @@ html.lang-id .lang-en {
   width: 8px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #F9F9F7;
-  border-right: 2px solid #111111;
+  background: var(--color-bg);
+  border-right: 2px solid var(--color-fg);
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #111111;
-  border: 1px solid #111111;
+  background: var(--color-fg);
+  border: 1px solid var(--color-fg);
 }
 .custom-scrollbar {
-  scrollbar-color: #111111 #F9F9F7;
+  scrollbar-color: var(--color-fg) var(--color-bg);
   scrollbar-width: thin;
 }
+
+/* Fallback utility overrides for Tailwind classes when tailwind config cache is not cleared */
+.text-neutral-900 { color: var(--color-neutral-900) !important; }
+.text-neutral-800 { color: var(--color-neutral-800) !important; }
+.text-neutral-700 { color: var(--color-neutral-700) !important; }
+.text-neutral-600 { color: var(--color-neutral-600) !important; }
+.text-neutral-500 { color: var(--color-neutral-500) !important; }
+.text-neutral-400 { color: var(--color-neutral-400) !important; }
+.text-neutral-200 { color: var(--color-neutral-200) !important; }
+.text-neutral-100 { color: var(--color-neutral-100) !important; }
+
+.border-neutral-300 { border-color: var(--color-neutral-300) !important; }
+.border-neutral-400 { border-color: var(--color-neutral-400) !important; }
+
+.bg-neutral-100 { background-color: var(--color-neutral-100) !important; }
+
+.border-process-subtle { border-color: var(--color-process-border) !important; }

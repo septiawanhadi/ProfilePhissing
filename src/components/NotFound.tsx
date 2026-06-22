@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import FuzzyText from './FuzzyText';
 import { useLanguage } from '../hooks/useLanguage';
+import { useTheme } from '../hooks/useTheme';
 
 export default function NotFound() {
   const lang = useLanguage();
+  const theme = useTheme();
   const [currentPath, setCurrentPath] = useState('');
   const [currentDate, setCurrentDate] = useState('');
 
@@ -22,15 +24,15 @@ export default function NotFound() {
   }, []);
 
   return (
-    <main className="max-w-screen-xl mx-auto px-4 py-12 md:py-20 flex-grow bg-[#F9F9F7]">
-      <div className="border-4 border-[#111111] p-6 md:p-12 bg-white relative">
+    <main className="max-w-screen-xl mx-auto px-4 py-12 md:py-20 flex-grow bg-[var(--color-bg)]">
+      <div className="border-4 border-[var(--color-fg)] p-6 md:p-12 bg-[var(--color-bg-card)] relative">
         {/* Decorative corner markers or elements to match neo-brutalist theme */}
-        <div className="absolute top-0 left-0 bg-[#111111] text-[#F9F9F7] px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider font-bold">
+        <div className="absolute top-0 left-0 bg-[var(--color-fg)] text-[var(--color-bg)] px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider font-bold">
           {lang === 'en' ? 'SYSTEM STATUS: 404' : 'STATUS SISTEM: 404'}
         </div>
 
         {/* Newspaper Sub-header */}
-        <div className="border-b-4 border-[#111111] pb-2 mb-8 mt-2 flex justify-between items-center text-xs font-mono uppercase tracking-widest text-neutral-500 font-bold">
+        <div className="border-b-4 border-[var(--color-fg)] pb-2 mb-8 mt-2 flex justify-between items-center text-xs font-mono uppercase tracking-widest text-neutral-500 font-bold">
           <div>GEMILANG ARCHIVE</div>
           <div className="hidden sm:block">
             {lang === 'en' ? 'ERROR CATALOG // NO. 404' : 'KATALOG ERROR // NO. 404'}
@@ -40,13 +42,13 @@ export default function NotFound() {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Fuzzy Text column */}
-          <div className="lg:col-span-6 flex justify-center items-center overflow-hidden border-b-4 lg:border-b-0 lg:border-r-4 border-[#111111] pb-8 lg:pb-0 lg:pr-8">
+          <div className="lg:col-span-6 flex justify-center items-center overflow-hidden border-b-4 lg:border-b-0 lg:border-r-4 border-[var(--color-fg)] pb-8 lg:pb-0 lg:pr-8">
             <FuzzyText
               baseIntensity={0.15}
               hoverIntensity={0.5}
               enableHover={true}
               clickEffect={true}
-              color="#111111"
+              color={theme === 'dark' ? '#E8E8E6' : '#111111'}
               fontSize="clamp(6rem, 18vw, 15rem)"
               fontWeight={900}
               fuzzRange={25}
@@ -59,11 +61,11 @@ export default function NotFound() {
 
           {/* Message and actions column */}
           <div className="lg:col-span-6 flex flex-col justify-center text-left lg:pl-4">
-            <div className="border-b-2 border-[#111111] pb-4 mb-6">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#CC0000] font-bold block mb-1">
+            <div className="border-b-2 border-[var(--color-fg)] pb-4 mb-6">
+              <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] font-bold block mb-1">
                 {lang === 'en' ? 'PAGE ARCHIVE DISCREPANCY' : 'KETIDAKSESUAIAN ARSIP HALAMAN'}
               </span>
-              <h2 className="font-serif text-3xl md:text-5xl font-black uppercase tracking-tight leading-tight text-[#111111]">
+              <h2 className="font-serif text-3xl md:text-5xl font-black uppercase tracking-tight leading-tight text-[var(--color-fg)]">
                 {lang === 'en' ? 'PAGE NOT FOUND' : 'HALAMAN TIDAK DITEMUKAN'}
               </h2>
             </div>
@@ -76,12 +78,12 @@ export default function NotFound() {
               )}
             </p>
 
-            <div className="border-l-4 border-[#CC0000] pl-4 py-2 bg-neutral-50 mb-8 font-mono text-xs text-neutral-500 space-y-1">
+            <div className="border-l-4 border-[var(--color-accent)] pl-4 py-2 bg-[var(--color-neutral-100)] mb-8 font-mono text-xs text-neutral-500 space-y-1">
               <div>
                 <span className="font-bold text-neutral-700">
                   {lang === 'en' ? 'REQUESTED URI' : 'URI YANG DIMINTA'}:
                 </span>{' '}
-                <span className="text-[#CC0000] break-all">{currentPath || '/404'}</span>
+                <span className="text-[var(--color-accent)] break-all">{currentPath || '/404'}</span>
               </div>
               <div>
                 <span className="font-bold text-neutral-700">
@@ -100,7 +102,7 @@ export default function NotFound() {
             <div>
               <a
                 href="/"
-                className="inline-block border-2 border-[#111111] bg-white text-[#111111] font-mono text-xs md:text-sm font-bold uppercase tracking-wider px-6 py-3 hover:bg-[#111111] hover:text-[#F9F9F7] transition-all duration-150 relative shadow-[4px_4px_0px_0px_#111111] hover:shadow-none hover:translate-x-1 hover:translate-y-1 cursor-pointer"
+                className="inline-block border-2 border-[var(--color-fg)] bg-[var(--color-bg-card)] text-[var(--color-fg)] font-mono text-xs md:text-sm font-bold uppercase tracking-wider px-6 py-3 hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-hover-text)] transition-all duration-150 relative shadow-[4px_4px_0px_0px_var(--color-fg)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 cursor-pointer"
               >
                 {lang === 'en' ? '← BACK TO HOMEPAGE' : '← KEMBALI KE BERANDA'}
               </a>

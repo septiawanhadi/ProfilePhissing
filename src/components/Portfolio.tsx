@@ -159,14 +159,14 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="work" className="max-w-screen-xl mx-auto px-4 py-16 border-b-2 border-[#111111] bg-[#F9F9F7]">
+    <section id="work" className="max-w-screen-xl mx-auto px-4 py-16 border-b-2 border-[var(--color-fg)] bg-[var(--color-bg)]">
       {/* Section Header */}
-      <div className="flex justify-between items-end mb-12 border-b-2 border-[#111111] pb-4">
+      <div className="flex justify-between items-end mb-12 border-b-2 border-[var(--color-fg)] pb-4">
         <div>
           <div className="font-mono text-xs uppercase tracking-widest text-neutral-600 font-bold mb-2">
             {lang === 'en' ? 'Case Studies // Real Results for Real Businesses' : 'Studi Kasus // Hasil Nyata untuk Bisnis Nyata'}
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl font-black uppercase text-[#111111] tracking-tight">
+          <h2 className="font-serif text-4xl md:text-5xl font-black uppercase text-[var(--color-fg)] tracking-tight">
             {lang === 'en' ? 'SELECTED WORK' : 'KARYA TERPILIH'}
           </h2>
         </div>
@@ -175,14 +175,14 @@ export default function Portfolio() {
         <div className="flex gap-2 mb-1">
           <button 
             onClick={() => scroll('left')}
-            className="border border-[#111111] bg-white w-8 h-8 flex items-center justify-center font-bold text-sm cursor-pointer hover:bg-[#111111] hover:text-[#F9F9F7] transition-all duration-150 active:translate-y-0.5"
+            className="border border-[var(--color-fg)] bg-[var(--color-bg-card)] w-8 h-8 flex items-center justify-center font-bold text-sm cursor-pointer hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-hover-text)] transition-all duration-150 active:translate-y-0.5"
             aria-label="Previous Project"
           >
             ←
           </button>
           <button 
             onClick={() => scroll('right')}
-            className="border border-[#111111] bg-white w-8 h-8 flex items-center justify-center font-bold text-sm cursor-pointer hover:bg-[#111111] hover:text-[#F9F9F7] transition-all duration-150 active:translate-y-0.5"
+            className="border border-[var(--color-fg)] bg-[var(--color-bg-card)] w-8 h-8 flex items-center justify-center font-bold text-sm cursor-pointer hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-hover-text)] transition-all duration-150 active:translate-y-0.5"
             aria-label="Next Project"
           >
             →
@@ -202,13 +202,13 @@ export default function Portfolio() {
               setSelectedProject(item);
               setIsModalOpen(true);
             }}
-            className="w-[280px] sm:w-[340px] md:w-[380px] flex-shrink-0 snap-start border-2 border-[#111111] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(17,17,17,1)] hover:shadow-[6px_6px_0px_0px_rgba(17,17,17,1)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer flex flex-col justify-between h-[280px] group"
+            className="w-[280px] sm:w-[340px] md:w-[380px] flex-shrink-0 snap-start border-2 border-[var(--color-fg)] bg-[var(--color-bg-card)] p-6 shadow-[4px_4px_0px_0px_var(--color-fg)] hover:shadow-[6px_6px_0px_0px_var(--color-fg)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer flex flex-col justify-between h-[280px] group"
           >
             <div>
-              <div className="text-[9px] font-mono uppercase tracking-widest text-[#CC0000] font-bold mb-2">
+              <div className="text-[9px] font-mono uppercase tracking-widest text-[var(--color-accent)] font-bold mb-2">
                 {item.industry}
               </div>
-              <h4 className="font-serif text-lg font-bold uppercase text-[#111111] leading-tight mb-2 group-hover:text-[#CC0000] transition-colors line-clamp-2">
+              <h4 className="font-serif text-lg font-bold uppercase text-[var(--color-fg)] leading-tight mb-2 group-hover:text-[var(--color-accent)] transition-colors line-clamp-2">
                 {item.title}
               </h4>
               <p className="font-serif italic text-xs text-neutral-500 mb-4 line-clamp-2">
@@ -220,7 +220,7 @@ export default function Portfolio() {
             </div>
 
             <div className="border-t border-dashed border-neutral-300 pt-4 flex justify-between items-center mt-4">
-              <span className="font-mono text-[10px] font-bold text-[#CC0000] tracking-widest uppercase group-hover:underline">
+              <span className="font-mono text-[10px] font-bold text-[var(--color-accent)] tracking-widest uppercase group-hover:underline">
                 {lang === 'en' ? 'READ STORY →' : 'BACA SELENGKAPNYA →'}
               </span>
             </div>

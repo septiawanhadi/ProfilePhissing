@@ -53,36 +53,36 @@ export default function Process() {
   const steps = lang === 'en' ? stepsEn : stepsId;
 
   return (
-    <section className="max-w-screen-xl mx-auto px-4 py-16 border-b-2 border-[#111111]">
+    <section className="max-w-screen-xl mx-auto px-4 py-16 border-b-2 border-[var(--color-fg)]">
       {/* Section Header */}
-      <div className="mb-12 border-b-2 border-[#111111] pb-4">
+      <div className="mb-12 border-b-2 border-[var(--color-fg)] pb-4">
         <div className="font-mono text-xs uppercase tracking-widest text-neutral-600 font-bold mb-2">
           {lang === 'en' ? 'Process // From First Call to Launch Day' : 'Proses // Dari Telepon Pertama hingga Hari Peluncuran'}
         </div>
-        <h2 className="font-serif text-4xl md:text-5xl font-black uppercase text-[#111111] tracking-tight">
+        <h2 className="font-serif text-4xl md:text-5xl font-black uppercase text-[var(--color-fg)] tracking-tight">
           {lang === 'en' ? 'HOW WE WORK' : 'CARA KAMI BEKERJA'}
         </h2>
       </div>
 
       {/* Inverted Process Grid */}
-      <div className="bg-[#111111] text-[#F9F9F7] border border-[#111111]">
+      <div className="bg-[var(--color-fg)] text-[var(--color-bg)] border border-[var(--color-fg)]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, idx) => (
             <div
               key={step.number}
               className={`p-8 flex flex-col ${
                 idx < steps.length - 1
-                  ? "border-b lg:border-b-0 lg:border-r border-[#F9F9F7]/10"
+                  ? "border-b lg:border-b-0 lg:border-r border-process-subtle"
                   : ""
               }`}
             >
               {/* Step Number */}
-              <div className="font-serif text-5xl font-black text-[#CC0000] leading-none mb-4">
+              <div className="font-serif text-5xl font-black text-[var(--color-accent)] leading-none mb-4">
                 {step.number}
               </div>
 
               {/* Step Title */}
-              <h3 className="font-serif text-xl font-bold uppercase tracking-tight text-[#F9F9F7] mb-3">
+              <h3 className="font-serif text-xl font-bold uppercase tracking-tight text-[var(--color-bg)] mb-3">
                 {step.title}
               </h3>
 
@@ -99,7 +99,7 @@ export default function Process() {
       <div className="mt-6 text-center">
         <a
           href="#contact"
-          className="inline-block text-xs font-mono uppercase tracking-widest text-[#CC0000] font-bold hover:underline underline-offset-4 decoration-2"
+          className="inline-block text-xs font-mono uppercase tracking-widest text-[var(--color-accent)] font-bold hover:underline underline-offset-4 decoration-2"
         >
           {lang === 'en' ? 'Ready to start? Get your free consultation →' : 'Siap untuk memulai? Dapatkan konsultasi gratis Anda →'}
         </a>

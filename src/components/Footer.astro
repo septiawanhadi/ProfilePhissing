@@ -4,12 +4,11 @@ const pathname = Astro.url.pathname;
 const isHome = pathname === '/' || pathname === '';
 const homePrefix = isHome ? '' : '/';
 ---
-
-<footer class="max-w-screen-xl mx-auto px-4 mt-16 border-t-4 border-[#111111] bg-[#F9F9F7]">
-  <div class="grid grid-cols-1 md:grid-cols-4 border-b border-[#111111]">
+<footer class="max-w-screen-xl mx-auto px-4 mt-16 border-t-4 border-[var(--color-fg)] bg-[var(--color-bg)]">
+  <div class="grid grid-cols-1 md:grid-cols-4 border-b border-[var(--color-fg)]">
     <!-- Column 1: About -->
-    <div class="p-6 border-b md:border-b-0 md:border-r border-[#111111]">
-      <h4 class="font-serif text-lg font-bold uppercase tracking-wider mb-4 text-[#111111]">
+    <div class="p-6 border-b md:border-b-0 md:border-r border-[var(--color-fg)]">
+      <h4 class="font-serif text-lg font-bold uppercase tracking-wider mb-4 text-[var(--color-fg)]">
         <span class="lang-en">ABOUT</span>
         <span class="lang-id">TENTANG</span>
       </h4>
@@ -20,38 +19,38 @@ const homePrefix = isHome ? '' : '/';
     </div>
 
     <!-- Column 2: Navigation -->
-    <div class="p-6 border-b md:border-b-0 md:border-r border-[#111111]">
-      <h4 class="font-serif text-lg font-bold uppercase tracking-wider mb-4 text-[#111111]">
+    <div class="p-6 border-b md:border-b-0 md:border-r border-[var(--color-fg)]">
+      <h4 class="font-serif text-lg font-bold uppercase tracking-wider mb-4 text-[var(--color-fg)]">
         <span class="lang-en">NAVIGATE</span>
         <span class="lang-id">NAVIGASI</span>
       </h4>
       <ul class="font-mono text-xs uppercase tracking-widest space-y-2">
         <li>
-          <a href={`${homePrefix}#home`} class="hover:text-[#CC0000] underline-offset-2 hover:underline decoration-1 transition-colors">
+          <a href={`${homePrefix}#home`} class="hover:text-[var(--color-accent)] underline-offset-2 hover:underline decoration-1 transition-colors">
             <span class="lang-en">Home</span>
             <span class="lang-id">Beranda</span>
           </a>
         </li>
         <li>
-          <a href={`${homePrefix}#services`} class="hover:text-[#CC0000] underline-offset-2 hover:underline decoration-1 transition-colors">
+          <a href={`${homePrefix}#services`} class="hover:text-[var(--color-accent)] underline-offset-2 hover:underline decoration-1 transition-colors">
             <span class="lang-en">Services</span>
             <span class="lang-id">Layanan</span>
           </a>
         </li>
         <li>
-          <a href={`${homePrefix}#work`} class="hover:text-[#CC0000] underline-offset-2 hover:underline decoration-1 transition-colors">
+          <a href={`${homePrefix}#work`} class="hover:text-[var(--color-accent)] underline-offset-2 hover:underline decoration-1 transition-colors">
             <span class="lang-en">Work</span>
             <span class="lang-id">Portofolio</span>
           </a>
         </li>
         <li>
-          <a href={`${homePrefix}#faq`} class="hover:text-[#CC0000] underline-offset-2 hover:underline decoration-1 transition-colors">
+          <a href={`${homePrefix}#faq`} class="hover:text-[var(--color-accent)] underline-offset-2 hover:underline decoration-1 transition-colors">
             <span class="lang-en">FAQ</span>
             <span class="lang-id">Tanya Jawab</span>
           </a>
         </li>
         <li>
-          <a href={`${homePrefix}#contact`} class="hover:text-[#CC0000] underline-offset-2 hover:underline decoration-1 transition-colors">
+          <a href={`${homePrefix}#contact`} class="hover:text-[var(--color-accent)] underline-offset-2 hover:underline decoration-1 transition-colors">
             <span class="lang-en">Contact</span>
             <span class="lang-id">Kontak</span>
           </a>
@@ -60,26 +59,26 @@ const homePrefix = isHome ? '' : '/';
     </div>
 
     <!-- Column 3: Connect -->
-    <div class="p-6 border-b md:border-b-0 md:border-r border-[#111111]">
-      <h4 class="font-serif text-lg font-bold uppercase tracking-wider mb-4 text-[#111111]">
+    <div class="p-6 border-b md:border-b-0 md:border-r border-[var(--color-fg)]">
+      <h4 class="font-serif text-lg font-bold uppercase tracking-wider mb-4 text-[var(--color-fg)]">
         <span class="lang-en">CONNECT</span>
         <span class="lang-id">HUBUNGI</span>
       </h4>
       <div class="flex flex-col space-y-3">
-        <a href="https://github.com/septiawanhadi" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-700 hover:text-[#CC0000] transition-colors">
-          <span class="inline-flex items-center justify-center border border-black h-6 w-6 shrink-0 bg-white hover:bg-black hover:text-white transition-colors">
+        <a href="https://github.com/septiawanhadi" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-700 hover:text-[var(--color-accent)] transition-colors">
+          <span class="inline-flex items-center justify-center border border-[var(--color-fg)] h-6 w-6 shrink-0 bg-[var(--color-bg-card)] hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-hover-text)] transition-colors">
             <svg class="h-3 w-3 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           </span>
           Septiawan Hadi
         </a>
-        <a href="https://github.com/didradev" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-700 hover:text-[#CC0000] transition-colors">
-          <span class="inline-flex items-center justify-center border border-black h-6 w-6 shrink-0 bg-white hover:bg-black hover:text-white transition-colors">
+        <a href="https://github.com/didradev" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-700 hover:text-[var(--color-accent)] transition-colors">
+          <span class="inline-flex items-center justify-center border border-[var(--color-fg)] h-6 w-6 shrink-0 bg-[var(--color-bg-card)] hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-hover-text)] transition-colors">
             <svg class="h-3 w-3 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           </span>
           Didra Rayyan
         </a>
-        <a href="mailto:contact@gemilang.dev" class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-700 hover:text-[#CC0000] transition-colors">
-          <span class="inline-flex items-center justify-center border border-black h-6 w-6 shrink-0 bg-white hover:bg-black hover:text-white transition-colors">
+        <a href="mailto:contact@gemilang.dev" class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-700 hover:text-[var(--color-accent)] transition-colors">
+          <span class="inline-flex items-center justify-center border border-[var(--color-fg)] h-6 w-6 shrink-0 bg-[var(--color-bg-card)] hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-hover-text)] transition-colors">
             <svg class="h-3 w-3 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </span>
           contact@gemilang.dev
@@ -105,7 +104,7 @@ const homePrefix = isHome ? '' : '/';
         </p>
       </div>
       <div class="pt-4 border-t border-dashed border-neutral-400 mt-4 text-center">
-        <a href={`${homePrefix}#contact`} class="text-[#CC0000] font-bold hover:underline underline-offset-4 decoration-2 text-[10px]">
+        <a href={`${homePrefix}#contact`} class="text-[var(--color-accent)] font-bold hover:underline underline-offset-4 decoration-2 text-[10px]">
           <span class="lang-en">GET A FREE CONSULTATION →</span>
           <span class="lang-id">KONSULTASI GRATIS →</span>
         </a>

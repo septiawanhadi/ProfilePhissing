@@ -1,21 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        background: '#F9F9F7',
-        foreground: '#111111',
-        muted: '#E5E5E0',
-        accent: '#CC0000',
-        border: '#111111',
+        background: 'var(--color-bg)',
+        foreground: 'var(--color-fg)',
+        muted: 'var(--color-muted)',
+        accent: 'var(--color-accent)',
+        border: 'var(--color-border)',
         neutral: {
-          100: '#F5F5F5',
-          200: '#E5E5E5',
-          400: '#A3A3A3',
-          500: '#737373',
-          600: '#525252',
-          700: '#404040',
+          100: 'var(--color-neutral-100)',
+          200: 'var(--color-neutral-200)',
+          300: 'var(--color-neutral-300)',
+          400: 'var(--color-neutral-400)',
+          500: 'var(--color-neutral-500)',
+          600: 'var(--color-neutral-600)',
+          700: 'var(--color-neutral-700)',
+          800: 'var(--color-neutral-800)',
+          900: 'var(--color-neutral-900)',
         }
       },
       fontFamily: {
