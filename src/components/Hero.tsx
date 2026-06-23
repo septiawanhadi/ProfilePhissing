@@ -78,9 +78,13 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-[linear-gradient(var(--color-border-subtle)_50%,transparent_50%)] [background-size:100%_4px]" />
                 
                 {/* Agency Monogram */}
-                <div className="z-0 text-center uppercase tracking-widest text-neutral-800 transition-transform duration-500 group-hover:scale-110">
-                  <div className="font-serif text-7xl font-black mb-2">D</div>
-                  <div className="font-mono text-[10px] text-neutral-600 font-bold border-t border-[var(--color-fg)] pt-2">
+                <div className="z-0 text-center uppercase tracking-widest text-neutral-800 transition-transform duration-500 group-hover:scale-110 flex flex-col items-center">
+                  <img 
+                    src="/assets/logo.png" 
+                    alt="DRIPCODE Logo" 
+                    className="logo-theme h-24 w-24 md:h-28 md:w-28 object-contain mb-4"
+                  />
+                  <div className="font-mono text-[10px] text-neutral-600 font-bold border-t border-[var(--color-fg)] pt-2 w-full">
                     {lang === 'en' ? 'EST. 2026 · AGENCY' : 'SEJAK 2026 · AGENSI'}
                   </div>
                 </div>
