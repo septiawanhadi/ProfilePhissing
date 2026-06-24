@@ -1,10 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { useLanguage } from '../hooks/useLanguage';
 
+// ─── Security: Input Sanitizer ───────────────────────────────────────────────
+// Strips HTML tags, script injections, and dangerous characters from user input
+const sanitize = (input: string): string => {
+  return input
+    .replace(/<[^>]*>/g, '')                       // Strip HTML tags
+    .replace(/javascript:/gi, '')                  // Remove javascript: protocol
+    .replace(/on\w+\s*=/gi, '')                    // Remove inline event handlers
+    .replace(/[\u0000-\u0008\u000B\u000E-\u001F]/g, '') // Strip control characters
+    .trim();
+};
+
+// ─── Security: Validation Helpers ────────────────────────────────────────────
+const MAX_NAME_LENGTH = 100;
+const MAX_EMAIL_LENGTH = 254;
+const MAX_MESSAGE_LENGTH = 2000;
+const RATE_LIMIT_MS = 10000; // 10 seconds between submissions
+
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+// reCAPTCHA site key from environment variable
+const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY || '6LdKEDItAAAAAGjV9Y7QIn2S7iYlfkUiUxMjVeSy';
+
+// Extend window type for reCAPTCHA v3
+declare global {
+  interface Window {
+    grecaptcha?: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
+
 export default function Contact() {
-  const [state, handleSubmit, reset] = useForm('mrevjayn');
+  const [state, handleFormspreeSubmit, reset] = useForm('mrevjayn');
   const lang = useLanguage();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,6 +46,120 @@ export default function Contact() {
     message: ''
   });
 
+  // ─── Security State ──────────────────────────────────────────────────────
+  const [captchaError, setCaptchaError] = useState<string>('');
+  const [securityError, setSecurityError] = useState<string>('');
+  const lastSubmitTime = useRef<number>(0);
+
+  // ─── Secure Form Submission ──────────────────────────────────────────────
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSecurityError('');
+    setCaptchaError('');
+
+    // Rate limiting check
+    const now = Date.now();
+    if (now - lastSubmitTime.current < RATE_LIMIT_MS) {
+      setSecurityError(
+        lang === 'en'
+          ? 'Please wait a moment before submitting again.'
+          : 'Mohon tunggu sebentar sebelum mengirim lagi.'
+      );
+      return;
+    }
+
+    // Honeypot check — if the hidden field has a value, it's a bot
+    const form = e.currentTarget;
+    const honeypot = form.querySelector<HTMLInputElement>('input[name="_gotcha"]');
+    if (honeypot && honeypot.value) {
+      // Silently "succeed" to confuse bots
+      return;
+    }
+
+    // Sanitize all inputs
+    const cleanName = sanitize(formData.name);
+    const cleanEmail = sanitize(formData.email);
+    const cleanMessage = sanitize(formData.message);
+
+    // Validate lengths
+    if (cleanName.length < 2 || cleanName.length > MAX_NAME_LENGTH) {
+      setSecurityError(
+        lang === 'en'
+          ? `Name must be between 2 and ${MAX_NAME_LENGTH} characters.`
+          : `Nama harus antara 2 dan ${MAX_NAME_LENGTH} karakter.`
+      );
+      return;
+    }
+
+    if (!EMAIL_REGEX.test(cleanEmail) || cleanEmail.length > MAX_EMAIL_LENGTH) {
+      setSecurityError(
+        lang === 'en'
+          ? 'Please enter a valid email address.'
+          : 'Silakan masukkan alamat email yang valid.'
+      );
+      return;
+    }
+
+    if (cleanMessage.length < 10 || cleanMessage.length > MAX_MESSAGE_LENGTH) {
+      setSecurityError(
+        lang === 'en'
+          ? `Message must be between 10 and ${MAX_MESSAGE_LENGTH} characters.`
+          : `Pesan harus antara 10 dan ${MAX_MESSAGE_LENGTH} karakter.`
+      );
+      return;
+    }
+
+    // ─── reCAPTCHA v3: execute invisibly and get token ───────────────────
+    let captchaToken = '';
+    try {
+      captchaToken = await new Promise<string>((resolve, reject) => {
+        if (!window.grecaptcha?.ready) {
+          reject(new Error('reCAPTCHA not loaded'));
+          return;
+        }
+        window.grecaptcha.ready(async () => {
+          try {
+            const token = await window.grecaptcha!.execute(RECAPTCHA_SITE_KEY, { action: 'contact' });
+            resolve(token);
+          } catch (err) {
+            reject(err);
+          }
+        });
+      });
+    } catch {
+      setCaptchaError(
+        lang === 'en'
+          ? 'Security verification failed. Please refresh and try again.'
+          : 'Verifikasi keamanan gagal. Silakan refresh dan coba lagi.'
+      );
+      return;
+    }
+
+    if (!captchaToken) {
+      setCaptchaError(
+        lang === 'en'
+          ? 'Security verification failed. Please try again.'
+          : 'Verifikasi keamanan gagal. Silakan coba lagi.'
+      );
+      return;
+    }
+
+    // Build a clean FormData object to send to Formspree
+    const safeFormData = new FormData();
+    safeFormData.append('name', cleanName);
+    safeFormData.append('email', cleanEmail);
+    safeFormData.append('projectType', formData.projectType);
+    safeFormData.append('budget', formData.budget);
+    safeFormData.append('message', cleanMessage);
+    safeFormData.append('g-recaptcha-response', captchaToken);
+
+    lastSubmitTime.current = now;
+
+    // Submit to Formspree
+    await handleFormspreeSubmit(safeFormData);
+  };
+
+  // ─── Reset Handler ───────────────────────────────────────────────────────
   const handleReset = () => {
     setFormData({
       name: '',
@@ -21,6 +168,8 @@ export default function Contact() {
       budget: '300-500',
       message: ''
     });
+    setCaptchaError('');
+    setSecurityError('');
     reset();
   };
 
@@ -71,6 +220,7 @@ export default function Contact() {
         <form 
           onSubmit={handleSubmit}
           className="lg:col-span-7 border-2 border-[var(--color-fg)] p-8 bg-[var(--color-bg-card)]"
+          noValidate
         >
           {state.succeeded ? (
             <div className="text-center py-12">
@@ -92,6 +242,19 @@ export default function Contact() {
             </div>
           ) : (
             <div className="space-y-6">
+              {/* ── Honeypot: invisible to humans, bots fill this ── */}
+              <div style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
+                <label htmlFor="_gotcha">Do not fill this field</label>
+                <input type="text" name="_gotcha" id="_gotcha" tabIndex={-1} autoComplete="off" />
+              </div>
+
+              {/* Security Error Banner */}
+              {securityError && (
+                <div className="border-2 border-[var(--color-accent)] bg-[var(--color-accent)]/10 p-3 font-mono text-xs text-[var(--color-accent)] font-bold uppercase tracking-wider">
+                  ⚠ {securityError}
+                </div>
+              )}
+
               {/* Name */}
               <div className="flex flex-col">
                 <label className="font-mono text-xs uppercase tracking-widest font-bold text-neutral-700 mb-1">
@@ -101,11 +264,13 @@ export default function Contact() {
                   type="text" 
                   name="name"
                   required
+                  maxLength={MAX_NAME_LENGTH}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="e.g. John Smith"
                   className="border-b-2 border-[var(--color-fg)] bg-transparent px-3 py-2 font-mono text-sm focus-visible:bg-[var(--color-neutral-100)] focus-visible:outline-none"
                   style={{ borderRadius: '0px' }}
+                  autoComplete="name"
                 />
                 <ValidationError prefix="Name" field="name" errors={state.errors} className="font-mono text-xs text-[var(--color-accent)] mt-1 block" />
               </div>
@@ -119,11 +284,13 @@ export default function Contact() {
                   type="email" 
                   name="email"
                   required
+                  maxLength={MAX_EMAIL_LENGTH}
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="e.g. john@company.com"
                   className="border-b-2 border-[var(--color-fg)] bg-transparent px-3 py-2 font-mono text-sm focus-visible:bg-[var(--color-neutral-100)] focus-visible:outline-none"
                   style={{ borderRadius: '0px' }}
+                  autoComplete="email"
                 />
                 <ValidationError prefix="Email" field="email" errors={state.errors} className="font-mono text-xs text-[var(--color-accent)] mt-1 block" />
               </div>
@@ -200,11 +367,13 @@ export default function Contact() {
               <div className="flex flex-col">
                 <label className="font-mono text-xs uppercase tracking-widest font-bold text-neutral-700 mb-1">
                   {lang === 'en' ? "Tell Us About Your Project" : "Beri Tahu Kami Tentang Proyek Anda"}
+                  <span className="text-neutral-500 font-normal ml-2">({formData.message.length}/{MAX_MESSAGE_LENGTH})</span>
                 </label>
                 <textarea 
                   name="message"
                   required
                   rows={4}
+                  maxLength={MAX_MESSAGE_LENGTH}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder={lang === 'en' 
@@ -215,6 +384,13 @@ export default function Contact() {
                 />
                 <ValidationError prefix="Message" field="message" errors={state.errors} className="font-mono text-xs text-[var(--color-accent)] mt-1 block" />
               </div>
+
+              {/* ── reCAPTCHA v3 error (if any) ── */}
+              {captchaError && (
+                <div className="border-2 border-[var(--color-accent)] bg-[var(--color-accent)]/10 p-3 font-mono text-xs text-[var(--color-accent)] font-bold uppercase tracking-wider">
+                  ⚠ {captchaError}
+                </div>
+              )}
 
               {/* Submit */}
               <button 
@@ -227,6 +403,13 @@ export default function Contact() {
                   ? (lang === 'en' ? 'Sending...' : 'Mengirim...') 
                   : (lang === 'en' ? 'Send Inquiry' : 'Kirim Pertanyaan')}
               </button>
+
+              {/* Security Notice */}
+              <p className="font-mono text-[10px] text-neutral-500 text-center uppercase tracking-wider">
+                {lang === 'en'
+                  ? 'This form is protected by Google reCAPTCHA. All inputs are sanitized.'
+                  : 'Formulir ini dilindungi oleh Google reCAPTCHA. Semua input disanitasi.'}
+              </p>
             </div>
           )}
         </form>
