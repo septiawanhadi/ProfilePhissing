@@ -3,8 +3,9 @@ import { useForm, ValidationError } from '@formspree/react';
 import { useLanguage } from '../hooks/useLanguage';
 
 export default function Contact() {
-  const [state, handleSubmit, reset] = useForm('mrevjayn');
+  const [state, handleSubmit, reset] = useForm('mvzjgbvr');
   const lang = useLanguage();
+  const [validationError, setValidationError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,7 +22,44 @@ export default function Contact() {
       budget: '300-500',
       message: ''
     });
+    setValidationError(null);
     reset();
+  };
+
+  const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setValidationError(null);
+
+    // XSS / HTML injection detection
+    const hasHtmlTags = (text: string) => {
+      return /<[^>]*>/.test(text) || text.includes('<') || text.includes('>');
+    };
+
+    // SQL Injection detection (basic keyword check)
+    const hasSqlInjection = (text: string) => {
+      const lower = text.toLowerCase();
+      const sqlKeywords = [
+        'select ', 'union ', 'insert ', 'delete ', 'update ', 
+        'drop table', 'drop database', 'alter table', 'xp_cmdshell',
+        '--', '/*'
+      ];
+      return sqlKeywords.some(keyword => lower.includes(keyword));
+    };
+
+    if (
+      hasHtmlTags(formData.name) || hasHtmlTags(formData.email) || hasHtmlTags(formData.message) ||
+      hasSqlInjection(formData.name) || hasSqlInjection(formData.email) || hasSqlInjection(formData.message)
+    ) {
+      setValidationError(
+        lang === 'en'
+          ? 'Security Alert: HTML tags, scripts, or database queries are not allowed in this form.'
+          : 'Peringatan Keamanan: Tag HTML, skrip, atau kueri database tidak diizinkan di formulir ini.'
+      );
+      return;
+    }
+
+    // Pass valid form event to Formspree's handleSubmit
+    handleSubmit(e);
   };
 
   return (
@@ -53,11 +91,11 @@ export default function Contact() {
               : "Setiap proyek mendapatkan penawaran harga tetap di awal. Anda selalu tahu berapa biaya yang akan dibayarkan sebelum pekerjaan dimulai."}
           </p>
           <div className="border-t border-dashed border-[var(--color-fg)] pt-4 space-y-3">
-            <a href="mailto:contact@dripcode.dev" className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-700 hover:text-[var(--color-accent)] transition-colors">
+            <a href="mailto:contact@dripcode.site" className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-700 hover:text-[var(--color-accent)] transition-colors">
               <span className="inline-flex items-center justify-center border border-[var(--color-fg)] h-6 w-6 shrink-0 hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-hover-text)] transition-colors">
                 <svg className="h-3 w-3 fill-none stroke-current" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               </span>
-              contact@dripcode.dev
+              contact@dripcode.site
             </a>
             <div className="font-mono text-[10px] uppercase tracking-wider text-neutral-500 pt-2">
               <div>{lang === 'en' ? "• We work across GMT+7, GMT, and EST timezones" : "• Kami bekerja di zona waktu GMT+7, GMT, dan EST"}</div>
@@ -69,7 +107,7 @@ export default function Contact() {
 
         {/* Right Column: Contact Form */}
         <form 
-          onSubmit={handleSubmit}
+          onSubmit={onSubmitHandler}
           className="lg:col-span-7 border-2 border-[var(--color-fg)] p-8 bg-[var(--color-bg-card)]"
         >
           {state.succeeded ? (
@@ -92,6 +130,11 @@ export default function Contact() {
             </div>
           ) : (
             <div className="space-y-6">
+              {validationError && (
+                <div className="border-2 border-[var(--color-accent)] bg-[var(--color-bg)] p-4 text-xs font-mono text-[var(--color-accent)] font-bold">
+                  {validationError}
+                </div>
+              )}
               {/* Name */}
               <div className="flex flex-col">
                 <label className="font-mono text-xs uppercase tracking-widest font-bold text-neutral-700 mb-1">
