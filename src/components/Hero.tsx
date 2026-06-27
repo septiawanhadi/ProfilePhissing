@@ -25,8 +25,8 @@ export default function Hero() {
             <div>
               <p className="drop-cap mb-4">
                 {lang === 'en' 
-                  ? "Your website is your most important salesperson. We build blazing-fast, SEO-optimized websites and intelligent automation systems that turn visitors into customers — whether you're a repair shop in London, a hotel in Singapore, or a startup anywhere in between."
-                  : "Situs web Anda adalah tenaga penjual terpenting Anda. Kami membangun situs web yang sangat cepat, dioptimalkan untuk SEO, dan sistem otomatisasi cerdas yang mengubah pengunjung menjadi pelanggan — baik Anda bengkel di London, hotel di Singapura, atau startup di mana pun."}
+                  ? "Your website is your most important salesperson. We build blazing-fast, SEO-optimized websites and intelligent automation systems that turn visitors into customers — whether you're a startup in London, a brand in New York, or a business anywhere in between."
+                  : "Situs web Anda adalah tenaga penjual terpenting Anda. Kami membangun situs web yang sangat cepat, dioptimalkan untuk SEO, dan sistem otomatisasi cerdas yang mengubah pengunjung menjadi pelanggan — baik Anda startup di London, brand di New York, atau bisnis di mana pun."}
               </p>
             </div>
             <div>
@@ -37,8 +37,8 @@ export default function Hero() {
               </p>
               <p className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-500">
                 {lang === 'en' 
-                  ? "— Based in Indonesia. Serving clients worldwide."
-                  : "— Berbasis di Indonesia. Melayani klien di seluruh dunia."}
+                  ? "— Helping startups & brands. Serving UK, USA & Europe."
+                  : "— Membantu startup & brand. Melayani UK, USA & Eropa."}
               </p>
             </div>
           </div>
@@ -93,8 +93,8 @@ export default function Hero() {
               {/* Caption */}
               <div className="mt-2 text-[10px] font-mono uppercase tracking-wider text-neutral-600 leading-tight">
                 <strong>{lang === 'en' ? 'Fig 1.1:' : 'Gbr 1.1:'}</strong> {lang === 'en' 
-                  ? 'Dripcode Agency — Jakarta & Surabaya, serving clients in London, Europe, US, and Southeast Asia.'
-                  : 'Dripcode Agency — Jakarta & Surabaya, melayani klien di London, Eropa, AS, dan Asia Tenggara.'}
+                  ? 'Dripcode Agency — Helping startups & brands with modern websites in UK, USA, and Europe.'
+                  : 'Dripcode Agency — Membantu startup & brand dengan situs web modern di UK, USA, dan Eropa.'}
               </div>
             </div>
 
