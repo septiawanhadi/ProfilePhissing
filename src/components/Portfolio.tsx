@@ -7,6 +7,10 @@ import safetanaImg from '../assets/septi/safetana.png';
 import sidiktiImg from '../assets/septi/sidik-ti.png';
 import slbraudhatulzannahImg from '../assets/septi/slbraudhatulzannah.png';
 
+// Import local image assets for didra projects
+import manyarmotorImg from '../assets/didra/manyarmotor.jpg';
+import bsiImg from '../assets/didra/bsi.jpg';
+
 interface CaseStudy {
   id: string;
   title: string;
@@ -34,7 +38,7 @@ export default function Portfolio() {
         "Continuous SEO crawling and indexing work delivered consistent high visibility in local search results. With full control over domain, server config, and analytics engine, the shop now operates a self-sufficient digital infrastructure that ranks and converts without ongoing third-party costs."
       ],
       link: "https://manyarmotor.com",
-      image: "/src/assets/didra/manyarmotor.jpg"
+      image: manyarmotorImg.src
     },
     {
       id: "slbraudhatulzannah",
@@ -70,7 +74,7 @@ export default function Portfolio() {
         "The revamp achieved a perfect 100/100 on Google Lighthouse for SEO and Best Practices. Critical VAPT-identified vulnerabilities (XSS, XSRF, HSTS) were fully remediated using Content Security Policy (CSP) nonces. The new infrastructure is containerized, crawler-optimized, and production-hardened."
       ],
       link: "https://bsi.co.id",
-      image: "/src/assets/didra/bsi.jpg"
+      image: bsiImg.src
     },
     {
       id: "sidikti",
@@ -97,7 +101,7 @@ export default function Portfolio() {
         "Pekerjaan SEO crawling dan indexing secara konsisten menghasilkan visibilitas tinggi di hasil pencarian lokal. Dengan kendali penuh atas domain, konfigurasi server, dan analytics engine, bengkel kini memiliki infrastruktur digital mandiri yang mampu meranking dan mengonversi tanpa biaya pihak ketiga yang berkelanjutan."
       ],
       link: "https://manyarmotor.com",
-      image: "/src/assets/didra/manyarmotor.jpg"
+      image: manyarmotorImg.src
     },
     {
       id: "slbraudhatulzannah",
@@ -133,7 +137,7 @@ export default function Portfolio() {
         "Revamp ini meraih skor sempurna 100/100 di Google Lighthouse untuk kategori SEO dan Best Practices. Kerentanan kritis hasil audit VAPT (XSS, XSRF, HSTS) sepenuhnya diremediasi menggunakan Content Security Policy (CSP) nonces. Infrastruktur baru bersifat containerized, teroptimasi untuk crawler, dan telah dikeraskan untuk produksi."
       ],
       link: "https://bsi.co.id",
-      image: "/src/assets/didra/bsi.jpg"
+      image: bsiImg.src
     },
     {
       id: "sidikti",
