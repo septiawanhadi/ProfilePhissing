@@ -31,7 +31,7 @@ export default function InstagramGallery() {
     const fetchFeed = async () => {
       try {
         setLoading(true);
-        const response = await fetch('https://feeds.behold.so/yFAExy1MkjHcttF2Lyc6');
+        const response = await fetch('https://feeds.behold.so/Ko9kkLQxStz3FlN7a2AQ');
         if (!response.ok) {
           throw new Error('Failed to fetch Instagram feed');
         }
