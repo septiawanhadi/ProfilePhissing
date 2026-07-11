@@ -1,0 +1,115 @@
+---
+// DesignShowcase.astro — Immersive showcase section linking to the interactive design portal
+---
+
+<section id="design-showcase" class="max-w-screen-xl mx-auto px-4 py-16 border-b-2 border-[var(--color-fg)] bg-[var(--color-bg)]">
+  <!-- Section Header -->
+  <div class="mb-12 border-b-2 border-[var(--color-fg)] pb-4">
+    <div class="font-mono text-xs uppercase tracking-widest text-neutral-600 font-bold mb-2">
+      <span class="lang-en">Showcase // Living Design Systems & Motion Tokens</span>
+      <span class="lang-id">Showcase // Sistem Desain Dinamis & Token Gerak</span>
+    </div>
+    <h2 class="font-serif text-4xl md:text-5xl font-black uppercase text-[var(--color-fg)] tracking-tight">
+      <span class="lang-en">INTERACTIVE EXPERIENCES</span>
+      <span class="lang-id">PENGALAMAN INTERAKTIF</span>
+    </h2>
+  </div>
+
+  <!-- Content Box -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 border-2 border-[var(--color-fg)] bg-[var(--color-bg-card)] shadow-[6px_6px_0px_0px_var(--color-fg)]">
+    <!-- Left Column: Copy & Action -->
+    <div class="lg:col-span-7 p-8 md:p-12 flex flex-col justify-between border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--color-fg)]">
+      <div>
+        <div class="font-mono text-[10px] text-[var(--color-accent)] font-black uppercase tracking-widest mb-3">
+          <span class="lang-en">★ WEB ARTISTRY & MOTION TOKENS ★</span>
+          <span class="lang-id">★ KARYA SENI WEB & TOKEN GERAK ★</span>
+        </div>
+        <h3 class="font-serif text-3xl md:text-4xl font-black uppercase text-[var(--color-fg)] mb-6 leading-tight">
+          <span class="lang-en">EXPLORE OUR LIVE DESIGN SHOWCASE</span>
+          <span class="lang-id">JELAJAHI SHOWCASE DESAIN LIVE KAMI</span>
+        </h3>
+        <p class="font-body text-sm md:text-base text-neutral-600 text-justify mb-6 leading-relaxed">
+          <span class="lang-en">We don't just write code; we design living web experiences. We believe that modern websites should feel alive. We have created a dedicated interactive showroom showcasing premium UI concepts, custom scroll triggers, bespoke layouts, and cutting-edge motion designs. Click below to experience what is possible when design meets engineering.</span>
+          <span class="lang-id">Kami tidak sekadar menulis kode; kami merancang pengalaman web yang hidup. Kami percaya bahwa website modern harus terasa dinamis. Kami telah menciptakan ruang pameran interaktif khusus yang menampilkan konsep UI premium, pemicu gulir khusus, tata letak unik, dan desain gerak canggih. Klik di bawah untuk merasakan apa yang mungkin terjadi saat desain bertemu dengan rekayasa web.</span>
+        </p>
+
+        <!-- Bullet highlights -->
+        <ul class="font-mono text-xs uppercase tracking-widest text-neutral-700 space-y-2 mb-8">
+          <li class="flex items-center gap-2">
+            <span class="h-2 w-2 bg-[var(--color-accent)]"></span>
+            <span class="lang-en">Micro-interactions & fluid animations</span>
+            <span class="lang-id">Mikro-interaksi & animasi fluida</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-2 w-2 bg-[var(--color-accent)]"></span>
+            <span class="lang-en">Bespoke typographic layouts</span>
+            <span class="lang-id">Tata letak tipografi kustom</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-2 w-2 bg-[var(--color-accent)]"></span>
+            <span class="lang-en">Cutting-edge web engineering prototypes</span>
+            <span class="lang-id">Prototipe rekayasa web canggih</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <a 
+          href="https://dripcodeshowcase.vercel.app/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="inline-flex w-full sm:w-auto bg-[var(--color-fg)] text-[var(--color-bg)] border border-transparent px-8 py-4 font-sans font-bold uppercase tracking-widest text-xs transition-all duration-200 hover:bg-[var(--color-bg)] hover:text-[var(--color-fg)] hover:border-[var(--color-fg)] active:translate-y-0.5 shadow-[4px_4px_0px_0px_var(--color-accent)] hover:shadow-none min-h-[44px] justify-center items-center"
+        >
+          <span class="lang-en">LAUNCH DESIGN SHOWCASE →</span>
+          <span class="lang-id">BUKA SHOWCASE DESAIN →</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Visual Wireframe Simulation (WOW Factor) -->
+    <div class="lg:col-span-5 bg-[var(--color-muted)]/20 relative p-8 flex items-center justify-center overflow-hidden min-h-[300px]">
+      <!-- Halftone pattern background overlay -->
+      <div class="absolute inset-0 bg-[radial-gradient(var(--color-fg)_1px,transparent_1px)] opacity-10 [background-size:12px_12px]" />
+      
+      <!-- Abstract Brutalist UI Wireframe Schematic -->
+      <div class="relative w-full max-w-[280px] aspect-square border-2 border-[var(--color-fg)] bg-[var(--color-bg-card)] p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_var(--color-fg)] group hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-300">
+        <!-- Top bar -->
+        <div class="flex justify-between items-center border-b border-[var(--color-fg)] pb-2">
+          <span class="font-mono text-[9px] font-bold text-neutral-500 uppercase tracking-wider">DRIPCODE // Living_System.sys</span>
+          <div class="flex gap-1">
+            <span class="h-1.5 w-1.5 rounded-full bg-[var(--color-fg)]"></span>
+            <span class="h-1.5 w-1.5 rounded-full bg-[var(--color-fg)]"></span>
+          </div>
+        </div>
+
+        <!-- Wireframe graphics -->
+        <div class="my-4 flex-grow flex flex-col justify-center gap-3 relative">
+          <!-- Diagonals or grids -->
+          <div class="absolute inset-0 border border-dashed border-neutral-300 flex items-center justify-center">
+            <div class="w-full h-0 border-t border-dashed border-neutral-300 rotate-12"></div>
+          </div>
+          
+          <div class="h-4 bg-[var(--color-accent)] w-2/3 border border-[var(--color-fg)] relative z-10 animate-pulse"></div>
+          <div class="h-2 bg-[var(--color-fg)] w-full relative z-10"></div>
+          <div class="h-2 bg-[var(--color-fg)] w-1/2 relative z-10"></div>
+          
+          <div class="grid grid-cols-3 gap-2 mt-2 relative z-10">
+            <div class="border border-[var(--color-fg)] aspect-square bg-[var(--color-muted)] flex items-center justify-center font-mono text-[10px] font-bold">100</div>
+            <div class="border border-[var(--color-fg)] aspect-square bg-[var(--color-fg)] text-[var(--color-bg)] flex items-center justify-center font-mono text-[10px] font-bold">FPS</div>
+            <div class="border border-[var(--color-fg)] aspect-square bg-transparent flex items-center justify-center font-mono text-[10px] font-bold">A/B</div>
+          </div>
+        </div>
+
+        <!-- Bottom stats -->
+        <div class="border-t border-dashed border-[var(--color-fg)] pt-2 flex justify-between items-center text-[8px] font-mono uppercase tracking-widest text-neutral-500 font-bold">
+          <span>PORT: 8080</span>
+          <span class="text-[var(--color-accent)]">ACTIVE</span>
+        </div>
+      </div>
+
+      <!-- Accent grid ornament -->
+      <div class="absolute -bottom-10 -right-10 w-24 h-24 border border-dashed border-[var(--color-fg)] opacity-40 pointer-events-none" />
+      <div class="absolute -top-10 -left-10 w-24 h-24 border border-dashed border-[var(--color-fg)] opacity-40 pointer-events-none" />
+    </div>
+  </div>
+</section>
